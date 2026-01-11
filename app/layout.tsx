@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://krzysztofpiekarski.netlify.app"),
   title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
   description: "I help people break through mental barriers and reinvent who they are. I also teach professional-level investing to beat the indexes in the stock market.",
   keywords: ["philosophy", "consulting", "investing", "stock market", "personal development", "Krzysztof Piekarski", "Wall Street Wildlife", "options trading"],
