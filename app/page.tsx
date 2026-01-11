@@ -14,7 +14,7 @@ import Matter from 'matter-js';
 
 export default function FieldGuide() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(true);
   const [isHoveringLink, setIsHoveringLink] = useState(false);
   const [time, setTime] = useState<string>('');
   const [scrollY, setScrollY] = useState(0);
@@ -802,8 +802,8 @@ export default function FieldGuide() {
         {/* Top Bar - always visible */}
         <div className={`flex justify-between items-center px-4 md:px-6 py-2 -mt-2 transition-all duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
           <div
-            className="flex gap-3 text-xs font-bold tracking-widest text-white/80 transition-opacity duration-300"
-            style={{ opacity: Math.max(0, 1 - scrollY / 150) }}
+            className="fixed top-8 left-10 flex gap-3 text-xs font-bold tracking-widest text-white/80 transition-opacity duration-300 z-50"
+            style={{ opacity: Math.max(0, 1 - scrollY / 80) }}
           >
             <span className="bg-white/10 px-2 py-1">Austin, TX</span>
             <span className="bg-white/10 px-2 py-1">{time}</span>
@@ -853,7 +853,7 @@ export default function FieldGuide() {
         <div className="md:col-span-5 relative p-8 md:pb-12 flex flex-col bg-[#0a0a0a]">
 
           {/* Header */}
-          <div className="mt-16" style={{ transform: `translateY(${scrollY * 0.05}px)` }}>
+          <div className="mt-20" style={{ transform: `translateY(${scrollY * 0.05}px)` }}>
             <h1 className="text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter mb-6 text-white mix-blend-difference flex flex-col items-start cursor-default">
               <div className="flex flex-wrap">
                 {"KRZYSZTOF".split("").map((char, i) => (
@@ -918,7 +918,7 @@ export default function FieldGuide() {
 
           {/* Cutout Image with 3D Tilt Effect */}
           <div
-            className="relative w-full aspect-[4/5] mt-8 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 animate-float-jitter hover:animate-none"
+            className="relative w-full aspect-[4/5] mt-10 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 animate-float-jitter hover:animate-none"
             style={{
               perspective: '1000px',
               transform: `rotate(${scrollY * 0.002}deg)`
