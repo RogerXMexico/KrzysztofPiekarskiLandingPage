@@ -850,11 +850,10 @@ export default function FieldGuide() {
       <main className="relative z-10 w-full max-w-[1600px] mx-auto min-h-screen flex flex-col md:grid md:grid-cols-12">
 
         {/* --- LEFT COLUMN: IDENTITY --- */}
-        < div className="md:col-span-5 relative p-8 md:pb-20 flex flex-col justify-between min-h-screen bg-[#0a0a0a]" >
+        <div className="md:col-span-5 relative p-8 md:pb-12 flex flex-col bg-[#0a0a0a]">
 
           {/* Header */}
-          < div className="mt-20" style={{ transform: `translateY(${scrollY * 0.05}px)` }
-          }>
+          <div className="mt-16" style={{ transform: `translateY(${scrollY * 0.05}px)` }}>
             <h1 className="text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter mb-6 text-white mix-blend-difference flex flex-col items-start cursor-default">
               <div className="flex flex-wrap">
                 {"KRZYSZTOF".split("").map((char, i) => (
@@ -899,7 +898,7 @@ export default function FieldGuide() {
 
             {/* Value Proposition */}
             <p className="mt-6 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
-              I help people <span className="text-[#FF4500] font-bold">break through mental barriers</span> and reinvent the architecture of who they are.
+              I use the wisdom of the sages to help people <span className="text-[#FF4500] font-bold">break through mental barriers</span> and reinvent the architecture of who they are.
             </p>
             <p className="mt-3 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
               I also teach people to become <span className="text-[#39FF14] font-bold">professional-level investors</span> and to start beating the indexes in the stock market.
@@ -915,11 +914,11 @@ export default function FieldGuide() {
             >
               WORK WITH ME
             </a>
-          </div >
+          </div>
 
           {/* Cutout Image with 3D Tilt Effect */}
-          < div
-            className="relative w-full aspect-[4/5] mt-4 mb-8 group grayscale hover:grayscale-0 transition-all duration-100 animate-float-jitter hover:animate-none"
+          <div
+            className="relative w-full aspect-[4/5] mt-8 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 animate-float-jitter hover:animate-none"
             style={{
               perspective: '1000px',
               transform: `rotate(${scrollY * 0.002}deg)`
@@ -952,10 +951,10 @@ export default function FieldGuide() {
               />
               <div className="absolute inset-0 flex items-center justify-center text-white/10 font-black text-4xl pointer-events-none">KP</div>
             </div>
-          </div >
+          </div>
 
           {/* BECOME WHO YOU ARE */}
-          < div className="mt-8 space-y-4 group/become" >
+          <div className="mt-6 space-y-4 group/become">
             <h2 className="text-2xl font-serif leading-relaxed text-white/90">
               Become Who You<br /><span className="bg-white text-black px-1 group-hover/become:bg-[#FF4500] group-hover/become:text-white transition-colors duration-300">Are</span>.
             </h2>
@@ -968,12 +967,12 @@ export default function FieldGuide() {
             <p className="text-lg text-[#FF4500] font-bold font-serif">
               Let's explore!
             </p>
-          </div >
+          </div>
 
           {/* CUSTOMER TESTIMONIALS */}
-          < div className="mt-12 space-y-6" >
+          <div className="mt-8 space-y-5">
             <h4 className="font-mono text-xs tracking-widest opacity-40 uppercase">What Others Say</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ perspective: '1000px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ perspective: '1000px' }}>
               <div
                 className="col-span-1 md:col-span-2 border border-white/20 p-8 md:p-10 bg-white/5 hover:bg-white/10 hover:border-[#FF4500] hover:shadow-[0_0_30px_rgba(255,69,0,0.3)] transition-all duration-300 cursor-pointer group/testimonial"
                 style={{ transformStyle: 'preserve-3d' }}
@@ -1112,10 +1111,10 @@ export default function FieldGuide() {
                 <p className="mt-4 text-sm text-[#FF4500] font-bold">— Søren K.</p>
               </div>
             </div>
-          </div >
+          </div>
 
           {/* HIRE ME - Below Testimonials */}
-          < a
+          <a
             id="contact"
             href="mailto:krzyspiekarski@gmail.com"
             onMouseEnter={playHoverSound}
@@ -1123,12 +1122,12 @@ export default function FieldGuide() {
             className="mt-8 inline-flex items-center gap-3 border-b-4 border-white/60 pb-2 hover:border-[#FF4500] hover:pb-4 transition-all font-black text-xl tracking-widest text-white hover:text-[#FF4500]"
             style={{ fontFamily: "'Permanent Marker', cursive" }}
           >
-            HIRE ME AS YOUR CONSULTANT < span className="animate-pulse text-2xl scale-105 text-[#FF4500] drop-shadow-[0_0_15px_rgba(255,100,0,1),0_0_30px_rgba(255,69,0,0.6)]" >↓</span >
-          </a >
+            HIRE ME AS YOUR CONSULTANT <span className="animate-pulse text-2xl scale-105 text-[#FF4500] drop-shadow-[0_0_15px_rgba(255,100,0,1),0_0_30px_rgba(255,69,0,0.6)]">↓</span>
+          </a>
 
           {/* Contact Form */}
-          < form
-            className="mt-12 w-full max-w-md space-y-4"
+          <form
+            className="mt-8 w-full max-w-md space-y-4"
             onSubmit={async (e) => {
               e.preventDefault();
               setFormStatus('sending');
@@ -1223,7 +1222,7 @@ I am...`}
             }
 
             {/* Footer Contact */}
-            <div className="w-full font-mono text-sm text-white/50 mt-16 flex justify-center items-center">
+            <div className="w-full font-mono text-sm text-white/50 mt-12 flex justify-center items-center">
               <a href="mailto:monkey@wallstreetwildlife.com"
                 onMouseEnter={playHoverSound}
                 onMouseLeave={() => setIsHoveringLink(false)}
@@ -1231,43 +1230,36 @@ I am...`}
                 <Mail size={14} /> monkey@wallstreetwildlife.com
               </a>
             </div>
-          </form >
+          </form>
 
-
-        </div >
+        </div>
 
         {/* --- RIGHT COLUMN: THE WORK --- */}
-        < div className="md:col-span-7 flex flex-col bg-[#0a0a0a]" >
+        <div className="md:col-span-7 flex flex-col bg-[#0a0a0a]">
 
           {/* INTRO / MANIFESTO */}
-          < div className="p-12 md:p-24 relative min-h-[400px]" >
+          <div className="p-12 md:p-24 relative min-h-[400px] flex items-center justify-center">
             {/* Physics Text */}
-            < div id="manifesto-wrapper" style={{ opacity: isSmashing ? 0 : 1, transition: 'opacity 0.1s' }}>
+            <div id="manifesto-wrapper" className="text-center" style={{ opacity: isSmashing ? 0 : 1, transition: 'opacity 0.1s' }}>
               <h2
-                className="text-3xl font-serif leading-relaxed text-white/90 relative inline-block cursor-pointer group"
+                className="text-4xl md:text-6xl font-serif leading-relaxed text-white/90 relative inline-block cursor-pointer group"
                 onMouseEnter={(e) => { spawnSparks(e); playHoverSound(); }}
               >
-                "<span className="relative inline-block group/philohead">
+                <span className="relative inline-block group/philohead">
                   <span className="relative z-10 transition-colors duration-700 group-hover/philohead:text-[#FF4500]">Philosophy</span>
                   <span className="absolute inset-0 bg-[#FF4500]/20 scale-x-0 origin-left group-hover/philohead:scale-x-100 transition-transform duration-700 ease-out rounded" />
                 </span> with a <span
                   onClick={triggerHammerBreak}
-                  className="inline-block bg-white text-black px-1 underline decoration-[#FF4500] decoration-4 underline-offset-2 hover:bg-[#FF4500] hover:text-white hover:decoration-white hover:scale-110 hover:rotate-6 transition-all duration-100 cursor-pointer border-2 border-black"
-                >Hammer</span>."
+                  className="inline-block bg-white text-black px-2 underline decoration-[#FF4500] decoration-4 underline-offset-4 hover:bg-[#FF4500] hover:text-white hover:decoration-white hover:scale-110 hover:rotate-6 transition-all duration-100 cursor-pointer border-2 border-black"
+                >Hammer</span>
               </h2>
-              <p className="mt-6 text-lg text-white/60 font-serif max-w-lg group/indiv">
-                I use the <span className="inline-block hover:text-[#FF4500] hover:animate-[shake_1.5s_ease-in-out_infinite] transition-colors duration-200 cursor-pointer">hammer</span> of <span className="relative inline-block cursor-pointer group/philo">
-                  <span className="relative z-10 transition-colors duration-700 group-hover/philo:text-[#FF4500]">philosophy</span>
-                  <span className="absolute inset-0 bg-[#FF4500]/20 scale-x-0 origin-left group-hover/philo:scale-x-100 transition-transform duration-700 ease-out rounded" />
-                </span> to dismantle the narratives that confine us. Blending the precision of a strategist with the depth of the humanities, I help <span className="cursor-pointer group-hover/indiv:line-through group-hover/indiv:opacity-50 transition-all duration-300">individuals</span><span className="inline-block overflow-hidden max-w-0 group-hover/indiv:max-w-[6rem] transition-all duration-500 text-3xl text-red-500 font-black align-middle drop-shadow-[0_0_15px_rgba(255,0,0,1),0_0_30px_rgba(255,50,0,0.7)]"> YOU</span> shatter their old patterns and reinvent the architecture of who they are.
-              </p>
-            </div >
+            </div>
 
             {/* Physics Canvas */}
-            < canvas ref={physicsCanvasRef} className="absolute inset-0 pointer-events-none z-20" />
+            <canvas ref={physicsCanvasRef} className="absolute inset-0 pointer-events-none z-20" />
 
             {/* Hidden Quote Reveal */}
-            < div
+            <div
               className={`absolute top-0 left-0 w-full h-full flex items-center justify-center p-12 transition-all duration-1000 ${isQuoteRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}
             >
               <div className="bg-[#0a0a0a]/90 backdrop-blur-md p-8 border-l-4 border-[#FF4500]">
@@ -1291,16 +1283,16 @@ I am...`}
                   Rebuild
                 </button>
               </div>
-            </div >
-          </div >
+            </div>
+          </div>
 
           {/* PROJECT STACK - GRIT STYLE */}
-          < div className="flex-1 flex flex-col px-4 md:px-8 py-12 space-y-32" >
+          <div className="flex-1 flex flex-col px-4 md:px-8 py-8 space-y-16">
 
             {/* PROJECT B: FIRE PHILOSOPHY */}
-            < a href="https://firephilosophy.substack.com" target="_blank" rel="noopener noreferrer" className="block relative group/philosophy transition-transform duration-300 hover:rotate-[-0.45deg]" style={{ transform: `rotate(${scrollY * 0.0001}deg)` }}>
+            <a href="https://firephilosophy.substack.com" target="_blank" rel="noopener noreferrer" className="block relative group/philosophy transition-transform duration-300 hover:rotate-[-0.45deg]" style={{ transform: `rotate(${scrollY * 0.0001}deg)` }}>
               {/* Tape strip - dark grey, off-center */}
-              < div className="absolute -top-4 left-[25%] -translate-x-1/2 w-32 h-8 bg-[#333]/90 shadow-sm z-30 backdrop-blur-sm" />
+              <div className="absolute -top-4 left-[25%] -translate-x-1/2 w-32 h-8 bg-[#333]/90 shadow-sm z-30 backdrop-blur-sm" />
 
               {/* No torn edge overlay - border removed */}
 
