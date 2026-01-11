@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Mail, BookOpen, TrendingUp, Menu, X, Terminal } from 'lucide-react';
+import { ArrowUpRight, Mail, BookOpen, TrendingUp, Menu, X, Terminal, Linkedin, Twitter, Github } from 'lucide-react';
 import Bookshelf from './components/Bookshelf';
 import Matter from 'matter-js';
 
@@ -704,6 +704,50 @@ export default function FieldGuide() {
       <div className="fixed inset-0 opacity-[0.08] pointer-events-none z-40 mix-blend-overlay"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")` }}
       />
+
+      {/* --- FLOATING SOCIAL LINKS --- */}
+      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col gap-3">
+        <a
+          href="https://www.linkedin.com/in/krzysztof-piekarski-77b829107/"
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={playHoverSound}
+          onMouseLeave={() => setIsHoveringLink(false)}
+          className="group w-10 h-10 flex items-center justify-center border border-white/20 bg-black/50 backdrop-blur-sm hover:border-[#0A66C2] hover:bg-[#0A66C2] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(10,102,194,0.5)]"
+        >
+          <Linkedin size={18} className="text-white/60 group-hover:text-white transition-colors" />
+        </a>
+        <a
+          href="https://x.com/Krzys_Piekarski"
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={playHoverSound}
+          onMouseLeave={() => setIsHoveringLink(false)}
+          className="group w-10 h-10 flex items-center justify-center border border-white/20 bg-black/50 backdrop-blur-sm hover:border-white hover:bg-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+        >
+          <Twitter size={18} className="text-white/60 group-hover:text-black transition-colors" />
+        </a>
+        <a
+          href="https://github.com/RogerXMexico"
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={playHoverSound}
+          onMouseLeave={() => setIsHoveringLink(false)}
+          className="group w-10 h-10 flex items-center justify-center border border-white/20 bg-black/50 backdrop-blur-sm hover:border-[#6e5494] hover:bg-[#6e5494] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(110,84,148,0.5)]"
+        >
+          <Github size={18} className="text-white/60 group-hover:text-white transition-colors" />
+        </a>
+        <a
+          href="mailto:krzyspiekarski@gmail.com"
+          onMouseEnter={playHoverSound}
+          onMouseLeave={() => setIsHoveringLink(false)}
+          className="group w-10 h-10 flex items-center justify-center border border-white/20 bg-black/50 backdrop-blur-sm hover:border-[#FF4500] hover:bg-[#FF4500] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,69,0,0.5)]"
+        >
+          <Mail size={18} className="text-white/60 group-hover:text-white transition-colors" />
+        </a>
+        {/* Decorative line */}
+        <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent mx-auto mt-2" />
+      </div>
 
       {/* --- NAVIGATION (Grit Pictures Style) --- */}
       <nav className="fixed top-0 left-0 w-full z-30 pointer-events-none">
