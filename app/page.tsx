@@ -896,6 +896,25 @@ export default function FieldGuide() {
             <div className="inline-block bg-white text-black px-3 py-1 text-sm font-mono transform -rotate-2 border border-white">
               <span className="cursor-pointer hover:bg-[#FF4500] hover:text-white transition-all duration-200 px-1" onMouseEnter={(e) => { spawnSparks(e); playHoverSound(); }}>PhD</span> • <span className="cursor-pointer hover:bg-[#FF4500] hover:text-white transition-all duration-200 px-1" onMouseEnter={(e) => { spawnSparks(e); playHoverSound(); }}>ANALYST</span> • <span className="cursor-pointer hover:bg-[#FF4500] hover:text-white transition-all duration-200 px-1" onMouseEnter={(e) => { spawnSparks(e); playHoverSound(); }}>WRITER</span> • <span className="cursor-pointer hover:bg-[#FF4500] hover:text-white transition-all duration-200 px-1" onMouseEnter={(e) => { spawnSparks(e); playHoverSound(); }}>PHILOSOPHER</span>
             </div>
+
+            {/* Value Proposition */}
+            <p className="mt-6 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
+              I help people <span className="text-[#FF4500] font-bold">break through mental barriers</span> and reinvent the architecture of who they are.
+            </p>
+            <p className="mt-3 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
+              I also teach people to become <span className="text-[#39FF14] font-bold">professional-level investors</span> and to start beating the indexes in the stock market.
+            </p>
+
+            {/* CTA Button */}
+            <a
+              href="#contact"
+              onMouseEnter={playHoverSound}
+              onMouseLeave={() => setIsHoveringLink(false)}
+              className="mt-8 inline-block px-8 py-4 bg-[#FF4500] text-white text-xl font-black tracking-wider hover:bg-white hover:text-black hover:scale-105 transition-all duration-200 shadow-[0_0_30px_rgba(255,69,0,0.6)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] border-2 border-[#FF4500] hover:border-white"
+              style={{ fontFamily: "'Permanent Marker', cursive" }}
+            >
+              WORK WITH ME
+            </a>
           </div >
 
           {/* Cutout Image with 3D Tilt Effect */}
@@ -1097,6 +1116,7 @@ export default function FieldGuide() {
 
           {/* HIRE ME - Below Testimonials */}
           < a
+            id="contact"
             href="mailto:krzyspiekarski@gmail.com"
             onMouseEnter={playHoverSound}
             onMouseLeave={() => setIsHoveringLink(false)}
