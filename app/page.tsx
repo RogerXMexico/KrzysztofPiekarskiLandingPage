@@ -1473,7 +1473,7 @@ I am...`}
             </div >
 
             {/* PROJECT A2: OPTIONS TRAINING */}
-            < a href="https://wswoptions3.netlify.app" target="_blank" rel="noopener noreferrer" className="block relative group/options overflow-hidden transition-transform duration-300 hover:rotate-[0.45deg]" style={{ transform: `rotate(${scrollY * 0.0001}deg)` }}>
+            < a href="https://wswoptionsuniversity.netlify.app/" target="_blank" rel="noopener noreferrer" className="block relative group/options overflow-hidden transition-transform duration-300 hover:rotate-[0.45deg]" style={{ transform: `rotate(${scrollY * 0.0001}deg)` }}>
               {/* Tape strip - dark grey, off-center */}
               < div className="absolute -top-4 left-[65%] -translate-x-1/2 w-32 h-8 bg-[#333]/90 shadow-sm z-30 backdrop-blur-sm" />
 
