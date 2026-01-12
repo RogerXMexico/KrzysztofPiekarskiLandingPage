@@ -1334,7 +1334,7 @@ I am...`}
             </a >
 
             {/* PROJECT C: YOU NEED FIRE */}
-            < a href="https://dynamic-queijadas-19a9ad.netlify.app/" target="_blank" rel="noopener noreferrer" className="block relative group/fire transition-transform duration-300 hover:rotate-[3deg]" style={{ transform: `rotate(${-3 + scrollY * 0.001}deg)` }}>
+            < a href="https://firephilosophy.netlify.app/" target="_blank" rel="noopener noreferrer" className="block relative group/fire transition-transform duration-300 hover:rotate-[3deg]" style={{ transform: `rotate(${-3 + scrollY * 0.001}deg)` }}>
               {/* Tape strip - dark grey, off-center */}
               < div className="absolute -top-4 left-[70%] -translate-x-1/2 w-32 h-8 bg-[#333]/90 shadow-sm z-30 backdrop-blur-sm" />
 
