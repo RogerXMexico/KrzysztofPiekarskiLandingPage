@@ -1519,7 +1519,7 @@ I am...`}
           </div >
 
           {/* --- READING LIST BOOKSHELF --- */}
-          <Bookshelf />
+          <Bookshelf onBookHover={playHoverSound} />
 
           {/* FEATURED VIDEO */}
           <div className="p-12 md:p-16 bg-[#0a0a0a]">

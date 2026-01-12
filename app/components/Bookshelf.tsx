@@ -154,10 +154,24 @@ const books: Book[] = [
     quote: "The closer we come to understanding nature, the further we drift from the world.",
     summary: "A genre-bending work blending fiction and history, exploring the lives of scientists whose discoveries pushed the boundaries of knowledge—and sanity—at the edge of the abyss.",
     year: "2020"
+  },
+  {
+    id: 15,
+    title: "The Brothers Karamazov",
+    author: "Fyodor Dostoevsky",
+    color: "#7f1d1d",
+    spineColor: "#991b1b",
+    quote: "The soul is healed by being with children.",
+    summary: "Dostoevsky's final masterpiece exploring faith, doubt, and morality through the turbulent Karamazov family. A profound meditation on free will, the existence of God, and the nature of evil.",
+    year: "1880"
   }
 ];
 
-export default function Bookshelf() {
+interface BookshelfProps {
+  onBookHover?: () => void;
+}
+
+export default function Bookshelf({ onBookHover }: BookshelfProps) {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [hoveredBook, setHoveredBook] = useState<number | null>(null);
 
@@ -229,7 +243,10 @@ export default function Bookshelf() {
                   willChange: 'transform',
                   isolation: 'isolate',
                 }}
-                onMouseEnter={() => setHoveredBook(book.id)}
+                onMouseEnter={() => {
+                  setHoveredBook(book.id);
+                  onBookHover?.();
+                }}
                 onMouseLeave={() => setHoveredBook(null)}
                 onClick={() => setSelectedBook(book)}
               >
