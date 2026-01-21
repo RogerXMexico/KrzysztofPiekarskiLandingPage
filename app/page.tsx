@@ -981,7 +981,7 @@ export default function FieldGuide() {
                     Reason to Believe
                   </h2>
                   <p className="text-white/50 text-sm max-w-xl mx-auto">
-                    Bruce Springsteen's meditation on faith and perseverance—a song that captures the human spirit's refusal to give up.
+                    Bruce Springsteen's meditation on faith and perseverance.
                   </p>
                 </div>
               </ScrollReveal>
