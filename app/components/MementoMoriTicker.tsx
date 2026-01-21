@@ -1,0 +1,72 @@
+'use client';
+
+import React from 'react';
+import { useReducedMotion } from '../hooks/useReducedMotion';
+
+interface MementoMoriTickerProps {
+  isVisible: boolean;
+}
+
+export default function MementoMoriTicker({ isVisible }: MementoMoriTickerProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <div
+      className={`fixed bottom-0 left-0 w-full bg-black border-t border-white/20 z-40 overflow-hidden py-2 select-none pointer-events-none motion-safe:transition-all motion-safe:duration-500 motion-reduce:transition-none transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full'
+      }`}
+      role="marquee"
+      aria-label="Status indicators"
+      aria-live="off"
+    >
+      <div
+        className={`whitespace-nowrap flex gap-8 text-xs font-mono tracking-widest text-[#00FF00] ${
+          prefersReducedMotion ? '' : 'animate-marquee'
+        }`}
+      >
+        <span className="opacity-70">
+          ENTROPY: <span className="text-red-500">▲ RISING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          TIME_LEFT: <span className="text-red-500">▼ 2,143 WEEKS</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          EGO: <span className="text-green-500">▼ CRASHING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          POTENTIAL: <span className="text-green-500">▲ UNTAPPED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          MEMENTO MORI:{' '}
+          <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">ACTIVE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        {/* Duplicate for seamless loop */}
+        <span className="opacity-70" aria-hidden="true">
+          ENTROPY: <span className="text-red-500">▲ RISING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          TIME_LEFT: <span className="text-red-500">▼ 2,143 WEEKS</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          EGO: <span className="text-green-500">▼ CRASHING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          POTENTIAL: <span className="text-green-500">▲ UNTAPPED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          MEMENTO MORI:{' '}
+          <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">ACTIVE</span>
+        </span>
+      </div>
+    </div>
+  );
+}
