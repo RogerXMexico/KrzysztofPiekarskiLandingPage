@@ -531,6 +531,11 @@ export default function FieldGuide() {
 
           {/* Contact Form */}
           <ContactForm playHoverSound={playHoverSound} />
+
+          {/* Newsletter Signup */}
+          <div className="mt-8">
+            <NewsletterSignup playHoverSound={playHoverSound} />
+          </div>
         </div>
 
         {/* RIGHT COLUMN: THE WORK */}
@@ -1023,15 +1028,6 @@ export default function FieldGuide() {
               </div>
             </div>
           </section>
-
-          {/* Newsletter Signup */}
-          <div className="px-6 md:px-12 py-12 bg-[#0a0a0a]">
-            <div className="max-w-3xl mx-auto">
-              <ScrollReveal animation="fade-up">
-                <NewsletterSignup playHoverSound={playHoverSound} />
-              </ScrollReveal>
-            </div>
-          </div>
 
           {/* Collaborators */}
           <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" id="about" aria-labelledby="collaborators-heading">
