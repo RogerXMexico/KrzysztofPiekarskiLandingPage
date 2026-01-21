@@ -49,14 +49,21 @@ export const metadata: Metadata = {
     siteName: "Krzysztof Piekarski",
     title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
     description: "I help people break through mental barriers and reinvent who they are. I also teach professional-level investing to beat the indexes.",
-    // Images auto-generated from opengraph-image.tsx
+    images: [
+      {
+        url: "/krzysztof.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Krzysztof Piekarski - Philosopher, Analyst & Investor",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
     description: "I help people break through mental barriers and reinvent who they are. Professional investing education.",
     creator: "@7FlyingPlatypus",
-    // Images auto-generated from twitter-image.tsx
+    images: ["/krzysztof.jpg"],
   },
   robots: {
     index: true,
