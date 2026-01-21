@@ -1062,6 +1062,25 @@ export default function FieldGuide() {
                   <p className="text-xs font-mono opacity-60">The Badger</p>
                 </div>
               </a>
+              <a
+                href="https://www.oxy.edu/academics/faculty/dale-wright"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22543d]"
+                onMouseEnter={playHoverSound}
+              >
+                <div className="w-[166px] h-[166px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#22543d] group-hover:shadow-[0_0_45px_5px_#22543d] group-active:shadow-[0_0_60px_10px_#22543d] duration-300">
+                  <img
+                    src="/Dale Wright.jpg"
+                    alt="Dale Wright"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-bold uppercase text-sm text-white">Dale Wright</p>
+                  <p className="text-xs font-mono opacity-60">Zen Philosopher</p>
+                </div>
+              </a>
               <div className="flex items-center gap-4 group cursor-pointer" onMouseEnter={playHoverSound}>
                 <div className="w-[166px] h-[166px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 relative group-hover:border-[#9d00ff] group-hover:shadow-[0_0_30px_#9d00ff] group-active:shadow-[0_0_50px_#9d00ff] duration-300">
                   <img
