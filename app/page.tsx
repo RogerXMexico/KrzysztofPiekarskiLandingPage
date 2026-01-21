@@ -1033,8 +1033,6 @@ export default function FieldGuide() {
             </div>
           </div>
 
-          <SectionDivider variant="dots" />
-
           {/* Collaborators */}
           <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" id="about" aria-labelledby="collaborators-heading">
             <ScrollReveal animation="fade-up">
