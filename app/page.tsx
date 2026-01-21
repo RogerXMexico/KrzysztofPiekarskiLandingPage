@@ -1060,10 +1060,10 @@ export default function FieldGuide() {
                 href="https://www.oxy.edu/academics/faculty/dale-wright"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-3 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22543d]"
+                className="flex flex-col items-center gap-3 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
                 onMouseEnter={playHoverSound}
               >
-                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#22543d] group-hover:shadow-[0_0_45px_5px_#22543d] group-active:shadow-[0_0_60px_10px_#22543d] duration-300">
+                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#FF4500] group-hover:shadow-[0_0_45px_5px_#FF4500] group-active:shadow-[0_0_60px_10px_#FF4500] duration-300">
                   <img
                     src="/Dale Wright.jpg"
                     alt="Dale Wright"
