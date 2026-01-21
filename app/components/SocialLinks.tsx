@@ -28,7 +28,7 @@ export default function SocialLinks({ playHoverSound }: SocialLinksProps) {
       hoverColor: '#FF6719',
     },
     {
-      href: 'mailto:krzyspiekarski@gmail.com',
+      href: 'https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com',
       label: 'Send email',
       icon: Mail,
       hoverColor: '#22C55E',
