@@ -42,7 +42,9 @@ export default function ContactForm({ playHoverSound }: ContactFormProps) {
       {/* HIRE ME Link */}
       <a
         id="contact"
-        href="mailto:krzyspiekarski@gmail.com"
+        href="https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
         onMouseEnter={playHoverSound}
         className="mt-8 inline-flex items-center gap-3 border-b-4 border-white/60 pb-2 hover:border-[#FF4500] hover:pb-4 transition-all font-black text-xl tracking-widest text-white hover:text-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         style={{ fontFamily: "'Permanent Marker', cursive" }}

@@ -28,7 +28,7 @@ export default function Navigation({
     { label: 'WORK', icon: '◈', href: '#work' },
     { label: 'PHILOSOPHY', icon: '☯', href: '#philosophy' },
     { label: 'ABOUT', icon: '◉', href: '#about' },
-    { label: 'CONTACT', icon: '✉', href: 'mailto:krzyspiekarski@gmail.com' },
+    { label: 'CONTACT', icon: '✉', href: 'https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com' },
   ];
 
   return (
@@ -55,6 +55,8 @@ export default function Navigation({
             >
               <a
                 href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 onMouseEnter={playHoverSound}
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-2 px-4 py-2 border-2 border-white rounded-sm bg-transparent hover:bg-[#FF4500] hover:text-black hover:border-[#FF4500] hover:shadow-[0_0_20px_rgba(255,69,0,0.8),0_0_40px_rgba(255,69,0,0.5)] transition-all duration-100 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -99,7 +101,7 @@ export default function Navigation({
           <button
             onClick={toggleAudio}
             onMouseEnter={playHoverSound}
-            className="text-xs font-bold tracking-widest hover:bg-white hover:text-black px-2 py-1 transition-colors border border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
+            className="text-xs font-bold tracking-widest hover:bg-white hover:text-black px-3 py-2 min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors border border-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
             aria-label={audioEnabled ? 'Mute audio' : 'Enable audio'}
             aria-pressed={audioEnabled}
           >
@@ -109,10 +111,10 @@ export default function Navigation({
           {/* ORACLE TRIGGER */}
           <button
             onClick={onOpenOracle}
-            className="text-white/50 hover:text-[#00FF00] transition-colors p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF00]"
+            className="text-white/50 hover:text-[#00FF00] transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF00]"
             aria-label="Open terminal (Cmd+K or Ctrl+K)"
           >
-            <Terminal size={14} aria-hidden="true" />
+            <Terminal size={18} aria-hidden="true" />
           </button>
 
           <button

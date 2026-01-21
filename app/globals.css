@@ -64,6 +64,16 @@ body {
   outline: none;
 }
 
+/* Only hide cursor on devices that support hover (desktop with mouse) */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none-hover {
+    cursor: none;
+  }
+  .cursor-none-hover * {
+    cursor: none;
+  }
+}
+
 /* ============================================
    REDUCED MOTION PREFERENCES
    ============================================ */
