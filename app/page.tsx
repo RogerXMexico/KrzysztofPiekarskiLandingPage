@@ -766,7 +766,11 @@ export default function FieldGuide() {
                         }}
                         aria-label="Support Wall Street Wildlife on Patreon"
                       >
-                        <img src="/monkey.png" className="w-full h-full object-cover" alt="Wall Street Wildlife Monkey" />
+                        <img
+                          src="/monkey.png"
+                          className="w-full h-full object-cover"
+                          alt="Wall Street Wildlife Monkey"
+                        />
                         <div
                           className="absolute inset-0 pointer-events-none"
                           style={{
@@ -778,7 +782,7 @@ export default function FieldGuide() {
                         {bananas.map((banana) => (
                           <div
                             key={banana.id}
-                            className="absolute pointer-events-none z-10 animate-banana-fall text-lg"
+                            className="absolute pointer-events-none z-10 animate-banana-fall"
                             style={{
                               left: `calc(50% + ${banana.x}px)`,
                               top: `calc(30% + ${banana.y}px)`,
@@ -786,7 +790,26 @@ export default function FieldGuide() {
                             }}
                             aria-hidden="true"
                           >
-                            🍌
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4 20C4 20 6 18 8 14C10 10 12 6 16 4C18 3 20 3 21 4C22 5 22 7 21 9C20 12 16 16 12 18C8 20 4 20 4 20Z"
+                                fill="#FFE135"
+                                stroke="#BFA700"
+                                strokeWidth="1"
+                              />
+                              <path
+                                d="M16 4C16 4 14 6 13 8"
+                                stroke="#BFA700"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                              />
+                            </svg>
                           </div>
                         ))}
                       </a>
@@ -957,7 +980,11 @@ export default function FieldGuide() {
                 onMouseEnter={playHoverSound}
               >
                 <div className="w-[166px] h-[166px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#006400] group-hover:shadow-[0_0_45px_5px_#006400] group-active:shadow-[0_0_60px_10px_#006400] duration-300">
-                  <img src="/badger.png" alt="Luke Badger Hallard" className="w-full h-full object-cover" />
+                  <img
+                    src="/badger.png"
+                    alt="Luke Badger Hallard"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <p className="font-bold uppercase text-sm text-white">Luke "Badger" Hallard</p>
@@ -966,7 +993,11 @@ export default function FieldGuide() {
               </a>
               <div className="flex items-center gap-4 group cursor-pointer" onMouseEnter={playHoverSound}>
                 <div className="w-[166px] h-[166px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 relative group-hover:border-[#9d00ff] group-hover:shadow-[0_0_30px_#9d00ff] group-active:shadow-[0_0_50px_#9d00ff] duration-300">
-                  <img src="/bunk.jpg" alt="Bunk" className="w-full h-full object-cover" />
+                  <img
+                    src="/bunk.jpg"
+                    alt="Bunk"
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute -bottom-1 -right-1 bg-yellow-400 text-black text-[10px] font-black px-1 border border-black transform rotate-12">
                     CEO
                   </div>

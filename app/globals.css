@@ -187,3 +187,31 @@ body {
 .animate-banana-fall {
   animation: banana-fall 1.5s ease-in forwards;
 }
+
+/* Image loading shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.image-loading {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #2a2a2a 50%,
+    #1a1a1a 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-loading {
+    animation: none;
+    background: #1a1a1a;
+  }
+}
