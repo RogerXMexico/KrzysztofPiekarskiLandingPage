@@ -107,15 +107,54 @@ function TestimonialCard({ text, author, title, featured, isTouchDevice }: Testi
 export default function Testimonials() {
   const isTouchDevice = useTouchDevice();
 
+  // Separate featured from regular testimonials
+  const featuredTestimonial = testimonials.find(t => t.featured);
+  const regularTestimonials = testimonials.filter(t => !t.featured);
+
   return (
     <section className="mt-8 space-y-5" aria-labelledby="testimonials-heading">
       <h4 id="testimonials-heading" className="font-mono text-xs tracking-widest opacity-40 uppercase">
         What Others Say
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ perspective: isTouchDevice ? undefined : '1000px' }}>
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={index} {...testimonial} isTouchDevice={isTouchDevice} />
-        ))}
+
+      {/* Featured testimonial - always full width */}
+      {featuredTestimonial && (
+        <div style={{ perspective: isTouchDevice ? undefined : '1000px' }}>
+          <TestimonialCard {...featuredTestimonial} isTouchDevice={isTouchDevice} />
+        </div>
+      )}
+
+      {/* Regular testimonials - horizontal scroll on mobile, grid on desktop */}
+      <div className="relative">
+        {/* Mobile: horizontal scroll */}
+        <div
+          className="flex md:hidden gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {regularTestimonials.map((testimonial, index) => (
+            <div key={index} className="flex-shrink-0 w-[85vw] snap-center">
+              <TestimonialCard {...testimonial} isTouchDevice={isTouchDevice} />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile scroll hint */}
+        <div className="flex md:hidden justify-center gap-1 mt-2">
+          <span className="text-white/30 text-xs font-mono">← swipe →</span>
+        </div>
+
+        {/* Desktop: grid layout */}
+        <div
+          className="hidden md:grid md:grid-cols-2 gap-4"
+          style={{ perspective: isTouchDevice ? undefined : '1000px' }}
+        >
+          {regularTestimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} isTouchDevice={isTouchDevice} />
+          ))}
+        </div>
       </div>
     </section>
   );

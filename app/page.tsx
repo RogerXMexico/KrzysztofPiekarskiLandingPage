@@ -16,6 +16,9 @@ import ContactForm from './components/ContactForm';
 import MementoMoriTicker from './components/MementoMoriTicker';
 import SparkEffect from './components/SparkEffect';
 import LazyYouTube from './components/LazyYouTube';
+import ScrollProgress from './components/ScrollProgress';
+import StickyCTA from './components/StickyCTA';
+import SectionDivider from './components/SectionDivider';
 
 // Hooks
 import { useAudio } from './hooks/useAudio';
@@ -207,6 +210,12 @@ export default function FieldGuide() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+
+      {/* Scroll progress indicator */}
+      <ScrollProgress scrollY={scrollY} />
+
+      {/* Sticky CTA - appears after scrolling past hero */}
+      <StickyCTA show={scrollY > 600} playHoverSound={playHoverSound} />
 
       {/* Background layers */}
       <ConstellationBackground scrollY={scrollY} />
@@ -558,10 +567,17 @@ export default function FieldGuide() {
                       triggerHammerBreak();
                     }
                   }}
-                  className="inline-block bg-white text-black px-2 underline decoration-[#FF4500] decoration-4 underline-offset-4 hover:bg-[#FF4500] hover:text-white hover:decoration-white hover:scale-110 hover:rotate-6 transition-all duration-100 cursor-pointer border-2 border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2"
+                  className="relative inline-block bg-white text-black px-2 underline decoration-[#FF4500] decoration-4 underline-offset-4 hover:bg-[#FF4500] hover:text-white hover:decoration-white hover:scale-110 hover:rotate-6 transition-all duration-100 cursor-pointer border-2 border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 group/hammer"
                   aria-label="Click to trigger hammer animation"
                 >
                   Hammer
+                  {/* Pulsing hint */}
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF4500] rounded-full animate-ping opacity-75" aria-hidden="true" />
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF4500] rounded-full" aria-hidden="true" />
+                  {/* Tooltip */}
+                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white/60 whitespace-nowrap opacity-0 group-hover/hammer:opacity-100 transition-opacity">
+                    click me
+                  </span>
                 </button>
               </h2>
             </div>
@@ -946,16 +962,26 @@ export default function FieldGuide() {
           {/* Bookshelf */}
           <Bookshelf onBookHover={playHoverSound} />
 
+          <SectionDivider variant="gradient" />
+
           {/* Featured Video */}
           <section className="p-12 md:p-16 bg-[#0a0a0a]" aria-labelledby="video-heading">
-            <h2 id="video-heading" className="sr-only">
-              Featured Video
-            </h2>
             <div className="max-w-4xl mx-auto">
+              {/* Video Header */}
+              <div className="mb-8 text-center">
+                <p className="font-mono text-xs tracking-widest text-[#FF4500] uppercase mb-2">Featured</p>
+                <h2 id="video-heading" className="text-2xl md:text-3xl font-serif text-white mb-3">
+                  Reason to Believe
+                </h2>
+                <p className="text-white/50 text-sm max-w-xl mx-auto">
+                  Bruce Springsteen's meditation on faith and perseverance—a song that captures the human spirit's refusal to give up.
+                </p>
+              </div>
+
               <div className="rounded-sm overflow-hidden border-2 border-[#FF4500]/30 shadow-[0_0_30px_rgba(255,69,0,0.15)]">
                 <LazyYouTube
                   videoId="piMODx-_KYk"
-                  title="Featured YouTube video - Reason to Believe"
+                  title="Reason to Believe by Bruce Springsteen"
                 />
               </div>
 
@@ -989,6 +1015,8 @@ export default function FieldGuide() {
               </div>
             </div>
           </section>
+
+          <SectionDivider variant="dots" />
 
           {/* Collaborators */}
           <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" id="about" aria-labelledby="collaborators-heading">
