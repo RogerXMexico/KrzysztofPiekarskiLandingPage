@@ -19,6 +19,9 @@ import LazyYouTube from './components/LazyYouTube';
 import ScrollProgress from './components/ScrollProgress';
 import StickyCTA from './components/StickyCTA';
 import SectionDivider from './components/SectionDivider';
+import BackToTop from './components/BackToTop';
+import ScrollReveal from './components/ScrollReveal';
+import NewsletterSignup from './components/NewsletterSignup';
 
 // Hooks
 import { useAudio } from './hooks/useAudio';
@@ -216,6 +219,9 @@ export default function FieldGuide() {
 
       {/* Sticky CTA - appears after scrolling past hero */}
       <StickyCTA show={scrollY > 600} playHoverSound={playHoverSound} />
+
+      {/* Back to top button */}
+      <BackToTop show={scrollY > 1000} />
 
       {/* Background layers */}
       <ConstellationBackground scrollY={scrollY} />
@@ -968,15 +974,17 @@ export default function FieldGuide() {
           <section className="p-12 md:p-16 bg-[#0a0a0a]" aria-labelledby="video-heading">
             <div className="max-w-4xl mx-auto">
               {/* Video Header */}
-              <div className="mb-8 text-center">
-                <p className="font-mono text-xs tracking-widest text-[#FF4500] uppercase mb-2">Featured</p>
-                <h2 id="video-heading" className="text-2xl md:text-3xl font-serif text-white mb-3">
-                  Reason to Believe
-                </h2>
-                <p className="text-white/50 text-sm max-w-xl mx-auto">
-                  Bruce Springsteen's meditation on faith and perseverance—a song that captures the human spirit's refusal to give up.
-                </p>
-              </div>
+              <ScrollReveal animation="fade-up">
+                <div className="mb-8 text-center">
+                  <p className="font-mono text-xs tracking-widest text-[#FF4500] uppercase mb-2">Featured</p>
+                  <h2 id="video-heading" className="text-2xl md:text-3xl font-serif text-white mb-3">
+                    Reason to Believe
+                  </h2>
+                  <p className="text-white/50 text-sm max-w-xl mx-auto">
+                    Bruce Springsteen's meditation on faith and perseverance—a song that captures the human spirit's refusal to give up.
+                  </p>
+                </div>
+              </ScrollReveal>
 
               <div className="rounded-sm overflow-hidden border-2 border-[#FF4500]/30 shadow-[0_0_30px_rgba(255,69,0,0.15)]">
                 <LazyYouTube
@@ -1016,13 +1024,24 @@ export default function FieldGuide() {
             </div>
           </section>
 
+          {/* Newsletter Signup */}
+          <div className="px-6 md:px-12 py-12 bg-[#0a0a0a]">
+            <div className="max-w-3xl mx-auto">
+              <ScrollReveal animation="fade-up">
+                <NewsletterSignup playHoverSound={playHoverSound} />
+              </ScrollReveal>
+            </div>
+          </div>
+
           <SectionDivider variant="dots" />
 
           {/* Collaborators */}
           <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" id="about" aria-labelledby="collaborators-heading">
-            <h4 id="collaborators-heading" className="font-mono text-xs tracking-widest opacity-40 mb-8 uppercase">
-              Collaborators & Partners
-            </h4>
+            <ScrollReveal animation="fade-up">
+              <h4 id="collaborators-heading" className="font-mono text-xs tracking-widest opacity-40 mb-8 uppercase">
+                Collaborators & Partners
+              </h4>
+            </ScrollReveal>
             <div className="flex gap-8 flex-wrap">
               <a
                 href="https://x.com/7LukeHallard"
