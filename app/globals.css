@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import "tailwindcss";
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-marker: var(--font-permanent-marker);
 }
 
 :root {
@@ -213,5 +213,36 @@ body {
   .image-loading {
     animation: none;
     background: #1a1a1a;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICE SPECIFIC STYLES
+   ============================================ */
+
+/* Touch-friendly active states */
+@media (hover: none) and (pointer: coarse) {
+  /* Name letter tap effect */
+  .name-letter:active {
+    color: #FF4500 !important;
+    transform: scale(1.1) translateY(-2px);
+    text-shadow: 0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 40px #FF4500;
+  }
+
+  /* Card tap feedback */
+  .touch-card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* Button tap feedback */
+  .touch-button:active {
+    transform: scale(0.95);
+  }
+
+  /* Project card tap feedback */
+  .project-card:active {
+    border-color: #FF4500 !important;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
   }
 }

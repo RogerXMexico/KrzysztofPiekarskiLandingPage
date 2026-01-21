@@ -15,10 +15,12 @@ import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import MementoMoriTicker from './components/MementoMoriTicker';
 import SparkEffect from './components/SparkEffect';
+import LazyYouTube from './components/LazyYouTube';
 
 // Hooks
 import { useAudio } from './hooks/useAudio';
 import { useReducedMotion } from './hooks/useReducedMotion';
+import { useTouchDevice } from './hooks/useTouchDevice';
 
 /**
  * THE ANALYST'S FIELD GUIDE - GRIT EDITION
@@ -47,6 +49,7 @@ export default function FieldGuide() {
   // Hooks
   const { audioEnabled, toggleAudio, playHoverSound, playSmashSound } = useAudio();
   const prefersReducedMotion = useReducedMotion();
+  const isTouchDevice = useTouchDevice();
 
   // Clock
   useEffect(() => {
@@ -248,13 +251,15 @@ export default function FieldGuide() {
                 {'KRZYSZTOF'.split('').map((char, i) => (
                   <span
                     key={`k-${i}`}
-                    className="inline-block transition-all duration-200 hover:text-[#FF4500] hover:-translate-y-2 hover:scale-110"
+                    className="name-letter inline-block transition-all duration-200 hover:text-[#FF4500] hover:-translate-y-2 hover:scale-110"
                     style={{ textShadow: 'none' }}
                     onMouseEnter={(e) => {
+                      if (isTouchDevice) return;
                       e.currentTarget.style.textShadow = '0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 40px #FF4500';
                       playHoverSound();
                     }}
                     onMouseLeave={(e) => {
+                      if (isTouchDevice) return;
                       e.currentTarget.style.textShadow = 'none';
                     }}
                   >
@@ -266,13 +271,15 @@ export default function FieldGuide() {
                 {'PIEKARSKI'.split('').map((char, i) => (
                   <span
                     key={`p-${i}`}
-                    className="inline-block transition-all duration-200 hover:text-[#FF4500] hover:-translate-y-2 hover:scale-110"
+                    className="name-letter inline-block transition-all duration-200 hover:text-[#FF4500] hover:-translate-y-2 hover:scale-110"
                     style={{ textShadow: 'none' }}
                     onMouseEnter={(e) => {
+                      if (isTouchDevice) return;
                       e.currentTarget.style.textShadow = '0 0 10px #FF4500, 0 0 20px #FF4500, 0 0 40px #FF4500';
                       playHoverSound();
                     }}
                     onMouseLeave={(e) => {
+                      if (isTouchDevice) return;
                       e.currentTarget.style.textShadow = 'none';
                     }}
                   >
@@ -324,16 +331,36 @@ export default function FieldGuide() {
             </div>
 
             {/* Value Proposition */}
-            <p className="mt-6 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
-              I use the wisdom of the sages to help people{' '}
-              <span className="text-[#FF4500] font-bold">break through mental barriers</span> and reinvent the
-              architecture of who they are.
-            </p>
-            <p className="mt-3 text-xl md:text-2xl text-white/80 font-serif leading-relaxed max-w-md">
-              I also teach people to become{' '}
-              <span className="text-[#39FF14] font-bold">professional-level investors</span> and to start beating the
-              indexes in the stock market.
-            </p>
+            <div className="mt-8 space-y-6 max-w-md">
+              {/* Unified tagline */}
+              <p className="text-2xl md:text-3xl text-white font-serif leading-tight">
+                Philosophy for the <span className="text-[#FF4500] font-bold">mind</span>.
+                <br />
+                Strategy for the <span className="text-[#39FF14] font-bold">markets</span>.
+              </p>
+
+              {/* Two pillars */}
+              <div className="grid grid-cols-1 gap-4 mt-6">
+                <div className="flex items-start gap-3 group">
+                  <div className="w-1 h-full bg-[#FF4500] group-hover:h-full transition-all" />
+                  <div>
+                    <p className="text-sm font-mono text-[#FF4500] uppercase tracking-wider mb-1">Transform</p>
+                    <p className="text-white/70 font-serif">
+                      Break through mental barriers. Reinvent who you are.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 group">
+                  <div className="w-1 h-full bg-[#39FF14] group-hover:h-full transition-all" />
+                  <div>
+                    <p className="text-sm font-mono text-[#39FF14] uppercase tracking-wider mb-1">Invest</p>
+                    <p className="text-white/70 font-serif">
+                      Beat the indexes. Build lasting wealth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* CTA Button */}
             <a
@@ -349,14 +376,14 @@ export default function FieldGuide() {
           {/* Photo with 3D tilt effect */}
           <div
             className={`relative w-full aspect-[4/5] mt-10 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 ${
-              prefersReducedMotion ? '' : 'animate-float-jitter hover:animate-none'
+              prefersReducedMotion || isTouchDevice ? '' : 'animate-float-jitter hover:animate-none'
             }`}
             style={{
-              perspective: '1000px',
-              transform: prefersReducedMotion ? 'none' : `rotate(${scrollY * 0.002}deg)`,
+              perspective: isTouchDevice ? undefined : '1000px',
+              transform: prefersReducedMotion || isTouchDevice ? 'none' : `rotate(${scrollY * 0.002}deg)`,
             }}
             onMouseMove={(e) => {
-              if (prefersReducedMotion) return;
+              if (prefersReducedMotion || isTouchDevice) return;
               const rect = e.currentTarget.getBoundingClientRect();
               const x = e.clientX - rect.left;
               const y = e.clientY - rect.top;
@@ -375,8 +402,8 @@ export default function FieldGuide() {
             <div
               className="w-full h-full bg-[#1a1a1a] overflow-hidden shadow-2xl relative transition-all duration-300 ease-out border-4 border-white/20 hover:shadow-[0_0_30px_rgba(139,0,0,0.8),0_0_60px_rgba(139,0,0,0.5)]"
               style={{
-                transform: prefersReducedMotion ? 'none' : `rotateX(${photoTilt.rotateX}deg) rotateY(${photoTilt.rotateY}deg)`,
-                transformStyle: 'preserve-3d',
+                transform: prefersReducedMotion || isTouchDevice ? 'none' : `rotateX(${photoTilt.rotateX}deg) rotateY(${photoTilt.rotateY}deg)`,
+                transformStyle: isTouchDevice ? undefined : 'preserve-3d',
               }}
             >
               <img
@@ -925,13 +952,10 @@ export default function FieldGuide() {
               Featured Video
             </h2>
             <div className="max-w-4xl mx-auto">
-              <div className="relative w-full aspect-video rounded-sm overflow-hidden border-2 border-[#FF4500]/30 shadow-[0_0_30px_rgba(255,69,0,0.15)]">
-                <iframe
-                  src="https://www.youtube.com/embed/piMODx-_KYk"
-                  title="Featured YouTube video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
+              <div className="rounded-sm overflow-hidden border-2 border-[#FF4500]/30 shadow-[0_0_30px_rgba(255,69,0,0.15)]">
+                <LazyYouTube
+                  videoId="piMODx-_KYk"
+                  title="Featured YouTube video - Reason to Believe"
                 />
               </div>
 

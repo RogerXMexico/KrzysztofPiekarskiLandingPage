@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useTouchDevice } from '../hooks/useTouchDevice';
 
 const testimonials = [
   {
@@ -44,10 +45,12 @@ interface TestimonialCardProps {
   author: string;
   title?: string;
   featured?: boolean;
+  isTouchDevice: boolean;
 }
 
-function TestimonialCard({ text, author, title, featured }: TestimonialCardProps) {
+function TestimonialCard({ text, author, title, featured, isTouchDevice }: TestimonialCardProps) {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isTouchDevice) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -58,6 +61,7 @@ function TestimonialCard({ text, author, title, featured }: TestimonialCardProps
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isTouchDevice) return;
     e.currentTarget.style.transform = 'rotateX(0) rotateY(0)';
   };
 
@@ -67,8 +71,8 @@ function TestimonialCard({ text, author, title, featured }: TestimonialCardProps
         featured
           ? 'col-span-1 md:col-span-2 p-8 md:p-10 hover:border-[#FF4500] hover:shadow-[0_0_30px_rgba(255,69,0,0.3)]'
           : 'p-6'
-      }`}
-      style={{ transformStyle: 'preserve-3d' }}
+      } ${isTouchDevice ? 'active:bg-white/15 active:border-[#FF4500]/50' : ''}`}
+      style={{ transformStyle: isTouchDevice ? undefined : 'preserve-3d' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       tabIndex={0}
@@ -101,14 +105,16 @@ function TestimonialCard({ text, author, title, featured }: TestimonialCardProps
 }
 
 export default function Testimonials() {
+  const isTouchDevice = useTouchDevice();
+
   return (
     <section className="mt-8 space-y-5" aria-labelledby="testimonials-heading">
       <h4 id="testimonials-heading" className="font-mono text-xs tracking-widest opacity-40 uppercase">
         What Others Say
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ perspective: '1000px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ perspective: isTouchDevice ? undefined : '1000px' }}>
         {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={index} {...testimonial} />
+          <TestimonialCard key={index} {...testimonial} isTouchDevice={isTouchDevice} />
         ))}
       </div>
     </section>

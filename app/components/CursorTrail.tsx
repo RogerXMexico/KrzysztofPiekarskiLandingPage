@@ -2,16 +2,22 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { useTouchDevice } from '../hooks/useTouchDevice';
 
 export default function CursorTrail() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isReady, setIsReady] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const trailRef = useRef<{ x: number; y: number }[]>([]);
   const prefersReducedMotion = useReducedMotion();
+  const isTouchDevice = useTouchDevice();
 
   useEffect(() => {
-    // Skip the entire cursor trail if user prefers reduced motion
-    if (prefersReducedMotion) return;
+    // Skip the entire cursor trail if user prefers reduced motion or is on touch device
+    if (prefersReducedMotion || isTouchDevice) return;
+
+    // Delay to allow page to load first
+    const readyTimeout = setTimeout(() => setIsReady(true), 200);
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -106,18 +112,19 @@ export default function CursorTrail() {
 
     render();
     return () => {
+      clearTimeout(readyTimeout);
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [mousePos.x, mousePos.y, prefersReducedMotion]);
+  }, [mousePos.x, mousePos.y, prefersReducedMotion, isTouchDevice]);
 
-  // Don't render canvas at all if reduced motion is preferred
-  if (prefersReducedMotion) return null;
+  // Don't render canvas at all if reduced motion is preferred or on touch device
+  if (prefersReducedMotion || isTouchDevice) return null;
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 mix-blend-screen opacity-60"
+      className={`fixed top-0 left-0 w-full h-full pointer-events-none z-50 mix-blend-screen transition-opacity duration-500 ${isReady ? 'opacity-60' : 'opacity-0'}`}
       aria-hidden="true"
     />
   );

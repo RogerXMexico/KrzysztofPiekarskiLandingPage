@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { X, Quote, BookOpen } from 'lucide-react';
+import { useTouchDevice } from '../hooks/useTouchDevice';
 
 interface Book {
   id: number;
@@ -174,6 +175,36 @@ interface BookshelfProps {
 export default function Bookshelf({ onBookHover }: BookshelfProps) {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [hoveredBook, setHoveredBook] = useState<number | null>(null);
+  const [tappedBook, setTappedBook] = useState<number | null>(null);
+  const isTouchDevice = useTouchDevice();
+
+  // Handle touch interaction - first tap highlights, second tap opens
+  const handleBookInteraction = useCallback((book: Book, e: React.MouseEvent | React.TouchEvent) => {
+    if (isTouchDevice) {
+      e.preventDefault();
+      if (tappedBook === book.id) {
+        // Second tap - open modal
+        setSelectedBook(book);
+        setTappedBook(null);
+      } else {
+        // First tap - highlight
+        setTappedBook(book.id);
+        setHoveredBook(book.id);
+        onBookHover?.();
+      }
+    } else {
+      // Desktop click - open directly
+      setSelectedBook(book);
+    }
+  }, [isTouchDevice, tappedBook, onBookHover]);
+
+  // Clear tapped state when tapping elsewhere
+  const handleContainerClick = useCallback((e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setTappedBook(null);
+      setHoveredBook(null);
+    }
+  }, []);
 
   // Helper to get glow style
   const getGlow = (color: string, isHovered: boolean) => ({
@@ -203,7 +234,7 @@ export default function Bookshelf({ onBookHover }: BookshelfProps) {
           BOOKS THAT SHAPED<br />MY THINKING
         </h2>
         <p className="text-zinc-500 font-mono text-sm max-w-xl mx-auto border-l-2 border-[#FF4500] pl-4 text-left">
-          // HOVER TO INSPECT. CLICK TO DECRYPT.
+          {isTouchDevice ? '// TAP TO INSPECT. TAP AGAIN TO DECRYPT.' : '// HOVER TO INSPECT. CLICK TO DECRYPT.'}
         </p>
       </div>
 
@@ -229,26 +260,33 @@ export default function Bookshelf({ onBookHover }: BookshelfProps) {
           {/* Books Row */}
           <div
             className="flex justify-center items-end gap-2 md:gap-4 flex-wrap relative z-20"
+            onClick={handleContainerClick}
           >
             {books.map((book, index) => (
               <div
                 key={book.id}
                 className="relative cursor-pointer"
                 style={{
-                  transform: hoveredBook === book.id
+                  transform: hoveredBook === book.id || tappedBook === book.id
                     ? 'translateY(-15px) scale(1.02)'
                     : 'translateY(0) scale(1)',
                   transition: 'transform 0.25s ease-out, z-index 0s',
-                  zIndex: hoveredBook === book.id ? 50 : index,
+                  zIndex: hoveredBook === book.id || tappedBook === book.id ? 50 : index,
                   willChange: 'transform',
                   isolation: 'isolate',
                 }}
                 onMouseEnter={() => {
-                  setHoveredBook(book.id);
-                  onBookHover?.();
+                  if (!isTouchDevice) {
+                    setHoveredBook(book.id);
+                    onBookHover?.();
+                  }
                 }}
-                onMouseLeave={() => setHoveredBook(null)}
-                onClick={() => setSelectedBook(book)}
+                onMouseLeave={() => {
+                  if (!isTouchDevice) {
+                    setHoveredBook(null);
+                  }
+                }}
+                onClick={(e) => handleBookInteraction(book, e)}
               >
                 {/* Book Spine (Wireframe) */}
                 <div
@@ -259,7 +297,7 @@ export default function Bookshelf({ onBookHover }: BookshelfProps) {
                     background: 'rgba(5, 5, 5, 0.95)',
                     borderWidth: '2px',
                     borderStyle: 'solid',
-                    ...getGlow(book.color, hoveredBook === book.id),
+                    ...getGlow(book.color, hoveredBook === book.id || tappedBook === book.id),
                     transition: 'box-shadow 0.25s ease-out, border-color 0.25s ease-out'
                   }}
                 >
@@ -281,6 +319,13 @@ export default function Bookshelf({ onBookHover }: BookshelfProps) {
                   {/* Decorative Tech Lines */}
                   <div className="absolute bottom-2 left-0 right-0 h-[1px] bg-white/20 mx-2"></div>
                   <div className="absolute top-2 left-0 right-0 h-[1px] bg-white/20 mx-2"></div>
+
+                  {/* Tap again hint for mobile */}
+                  {isTouchDevice && tappedBook === book.id && (
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#FF4500] text-black text-[10px] font-bold px-2 py-1 whitespace-nowrap animate-pulse">
+                      TAP AGAIN
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

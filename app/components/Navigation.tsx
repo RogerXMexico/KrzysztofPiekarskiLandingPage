@@ -93,7 +93,7 @@ export default function Navigation({
           aria-live="polite"
         >
           <span className="bg-white/10 px-2 py-1">Austin, TX</span>
-          <time className="bg-white/10 px-2 py-1" dateTime={new Date().toISOString()}>
+          <time className="bg-white/10 px-2 py-1" suppressHydrationWarning>
             {time}
           </time>
         </div>

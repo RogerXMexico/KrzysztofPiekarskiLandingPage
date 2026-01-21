@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 
 interface ConstellationBackgroundProps {
@@ -10,12 +10,16 @@ interface ConstellationBackgroundProps {
 export default function ConstellationBackground({ scrollY }: ConstellationBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    // Small delay to ensure smooth page load
+    const readyTimeout = setTimeout(() => setIsReady(true), 100);
 
     const stars: { x: number; y: number; vx: number; vy: number }[] = [];
     const numStars = 80;
@@ -80,6 +84,7 @@ export default function ConstellationBackground({ scrollY }: ConstellationBackgr
     animate();
 
     return () => {
+      clearTimeout(readyTimeout);
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animId);
     };
@@ -88,7 +93,7 @@ export default function ConstellationBackground({ scrollY }: ConstellationBackgr
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full pointer-events-none z-0 opacity-40"
+      className={`fixed top-0 left-0 w-full pointer-events-none z-0 transition-opacity duration-1000 ${isReady ? 'opacity-40' : 'opacity-0'}`}
       style={{ transform: prefersReducedMotion ? 'none' : `translateY(${scrollY * -0.2}px)` }}
       aria-hidden="true"
     />
