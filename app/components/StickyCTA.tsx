@@ -10,7 +10,7 @@ interface StickyCTAProps {
 export default function StickyCTA({ show, playHoverSound }: StickyCTAProps) {
   return (
     <div
-      className={`fixed bottom-6 right-6 z-40 transition-all duration-500 ${
+      className={`fixed bottom-24 right-6 z-40 transition-all duration-500 ${
         show
           ? 'translate-y-0 opacity-100'
           : 'translate-y-20 opacity-0 pointer-events-none'
