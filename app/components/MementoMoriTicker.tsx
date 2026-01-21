@@ -45,6 +45,26 @@ export default function MementoMoriTicker({ isVisible }: MementoMoriTickerProps)
           <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">ACTIVE</span>
         </span>
         <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          IMAGINATION: <span className="text-green-500">▲ EXPANDING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          LOVE: <span className="text-green-500">▲ UNCONDITIONAL</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          COURAGE: <span className="text-green-500">▲ RISING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          WISDOM: <span className="text-green-500">▲ ACCUMULATING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          PATIENCE: <span className="text-green-500">▲ CULTIVATING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
         {/* Duplicate for seamless loop */}
         <span className="opacity-70" aria-hidden="true">
           ENTROPY: <span className="text-red-500">▲ RISING</span>
@@ -65,6 +85,26 @@ export default function MementoMoriTicker({ isVisible }: MementoMoriTickerProps)
         <span className="opacity-70" aria-hidden="true">
           MEMENTO MORI:{' '}
           <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">ACTIVE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          IMAGINATION: <span className="text-green-500">▲ EXPANDING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          LOVE: <span className="text-green-500">▲ UNCONDITIONAL</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          COURAGE: <span className="text-green-500">▲ RISING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          WISDOM: <span className="text-green-500">▲ ACCUMULATING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          PATIENCE: <span className="text-green-500">▲ CULTIVATING</span>
         </span>
       </div>
     </div>
