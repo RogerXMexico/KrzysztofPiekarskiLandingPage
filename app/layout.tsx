@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     canonical: "https://krzysztofpiekarski.netlify.app",
   },
   other: {
-    "google-site-verification": "", // Add your Google Search Console verification code here
+    "google-site-verification": "K6C-kPYkKOya1NSOohaLfvRbraNory8IJWHyl3JSHyY"
   },
   robots: {
     index: true,
