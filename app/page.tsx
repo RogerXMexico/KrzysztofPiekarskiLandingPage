@@ -1074,14 +1074,23 @@ export default function FieldGuide() {
                   <p>
                     In the world of finance, Krzysztof is co-host of{' '}
                     <a
-                      href="https://www.patreon.com/wallstreetwildlife"
+                      href="https://www.youtube.com/@WallStreetWildlife"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#39FF14] hover:underline"
                     >
                       Wall Street Wildlife
                     </a>
-                    , where he and Luke "Badger" Hallard teach professional-level options trading and stock market investing strategies
+                    , an investing podcast and{' '}
+                    <a
+                      href="https://www.youtube.com/@WallStreetWildlife"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#39FF14] hover:underline"
+                    >
+                      YouTube channel
+                    </a>
+                    {' '}where he and Luke "Badger" Hallard teach professional-level options trading and stock market investing strategies
                     designed to help investors beat the indexes and build lasting wealth.
                   </p>
                   <p>
