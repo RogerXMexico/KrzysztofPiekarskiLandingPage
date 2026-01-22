@@ -30,8 +30,25 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://krzysztofpiekarski.netlify.app"),
   title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
-  description: "I help people break through mental barriers and reinvent who they are. I also teach professional-level investing to beat the indexes in the stock market.",
-  keywords: ["philosophy", "consulting", "investing", "stock market", "personal development", "Krzysztof Piekarski", "Wall Street Wildlife", "options trading"],
+  description: "Philosopher, investor, and author of a dissertation on Buddhist Philosophy in David Foster Wallace. Founder of Fire Philosophy (Nietzsche, Zen) and co-host of Wall Street Wildlife. I help people break through mental barriers and beat the indexes.",
+  keywords: [
+    "Krzysztof Piekarski",
+    "Fire Philosophy",
+    "Wall Street Wildlife",
+    "David Foster Wallace",
+    "Buddhist philosophy",
+    "Nietzsche",
+    "Zen",
+    "philosophy",
+    "options trading",
+    "investing",
+    "stock market",
+    "Character By Design",
+    "personal development",
+    "Hakomi",
+    "IFS",
+    "Dale Wright"
+  ],
   authors: [{ name: "Krzysztof Piekarski" }],
   creator: "Krzysztof Piekarski",
   icons: {
@@ -48,7 +65,7 @@ export const metadata: Metadata = {
     url: "https://krzysztofpiekarski.netlify.app",
     siteName: "Krzysztof Piekarski",
     title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
-    description: "I help people break through mental barriers and reinvent who they are. I also teach professional-level investing to beat the indexes.",
+    description: "Founder of Fire Philosophy (Nietzsche, Zen) and co-host of Wall Street Wildlife. PhD on Buddhist Philosophy in David Foster Wallace. Philosophy for the mind, strategy for the markets.",
     images: [
       {
         url: "/krzysztof.jpg",
@@ -61,14 +78,78 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
-    description: "I help people break through mental barriers and reinvent who they are. Professional investing education.",
+    description: "Founder of Fire Philosophy (Nietzsche, Zen) and co-host of Wall Street Wildlife. PhD on Buddhist Philosophy in David Foster Wallace.",
     creator: "@7FlyingPlatypus",
     images: ["/krzysztof.jpg"],
+  },
+  alternates: {
+    canonical: "https://krzysztofpiekarski.netlify.app",
+  },
+  other: {
+    "google-site-verification": "", // Add your Google Search Console verification code here
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://krzysztofpiekarski.netlify.app/#website",
+      "url": "https://krzysztofpiekarski.netlify.app",
+      "name": "Krzysztof Piekarski",
+      "description": "Philosopher, investor, and author. Fire Philosophy, Wall Street Wildlife, Character By Design.",
+      "publisher": {
+        "@id": "https://krzysztofpiekarski.netlify.app/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://krzysztofpiekarski.netlify.app/#person",
+      "name": "Krzysztof Piekarski",
+      "givenName": "Krzysztof",
+      "familyName": "Piekarski",
+      "jobTitle": ["Philosopher", "Investor", "Writer", "Consultant"],
+      "description": "PhD in English Literature from UT Austin. Dissertation on Buddhist Philosophy in David Foster Wallace. Founder of Fire Philosophy and co-host of Wall Street Wildlife.",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Texas at Austin"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Williams College"
+        }
+      ],
+      "knowsAbout": [
+        "Philosophy",
+        "Nietzsche",
+        "Zen Buddhism",
+        "David Foster Wallace",
+        "Buddhist Philosophy",
+        "Options Trading",
+        "Stock Market Investing",
+        "Hakomi",
+        "Internal Family Systems",
+        "Character Development"
+      ],
+      "sameAs": [
+        "https://firephilosophy.substack.com/",
+        "https://www.patreon.com/wallstreetwildlife",
+        "https://www.linkedin.com/in/krzysztof-piekarski-0780762b/",
+        "https://substack.com/@firephilosophy",
+        "https://www.huffpost.com/author/krzysztof-piekarski",
+        "https://liberalarts.utexas.edu/rhetoric/faculty/kp687",
+        "https://twitter.com/7FlyingPlatypus"
+      ],
+      "url": "https://krzysztofpiekarski.netlify.app",
+      "image": "https://krzysztofpiekarski.netlify.app/krzysztof.jpg"
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -78,6 +159,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}
       >

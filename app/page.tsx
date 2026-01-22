@@ -1029,8 +1029,73 @@ export default function FieldGuide() {
             </div>
           </section>
 
+          {/* About / Bio - SEO Content */}
+          <section className="p-12 md:p-16 bg-[#0a0a0a]" id="about" aria-labelledby="about-heading">
+            <ScrollReveal animation="fade-up">
+              <div className="max-w-3xl mx-auto">
+                <h2 id="about-heading" className="font-mono text-xs tracking-widest text-[#FF4500] uppercase mb-6">
+                  About Krzysztof Piekarski
+                </h2>
+                <div className="space-y-6 text-white/70 font-serif leading-relaxed">
+                  <p>
+                    <span className="text-white font-semibold">Krzysztof Piekarski</span> is a philosopher, investor, and writer based in Austin, Texas.
+                    He holds a PhD in English Literature from the University of Texas at Austin, where he wrote his dissertation on{' '}
+                    <a
+                      href="https://repositories.lib.utexas.edu/items/a1b80bfe-a139-487b-8bfe-0a902aa0b08b"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FF4500] hover:underline"
+                    >
+                      Buddhist Philosophy in the Work of David Foster Wallace
+                    </a>
+                    —exploring how Wallace's fiction embodies Buddhist principles of mindfulness, suffering, and the critique of self.
+                  </p>
+                  <p>
+                    He is the founder of{' '}
+                    <a
+                      href="https://firephilosophy.substack.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FF4500] hover:underline"
+                    >
+                      Fire Philosophy
+                    </a>
+                    , a Substack publication exploring Nietzsche, Zen Buddhism, and the philosophy of living well, co-authored with{' '}
+                    <a
+                      href="https://www.oxy.edu/academics/faculty/dale-wright"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FF4500] hover:underline"
+                    >
+                      Dale Wright
+                    </a>{' '}
+                    (Professor Emeritus of Religious Studies at Occidental College) and Malek Moazzam-Doulat.
+                  </p>
+                  <p>
+                    In the world of finance, Krzysztof is co-host of{' '}
+                    <a
+                      href="https://www.patreon.com/wallstreetwildlife"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#39FF14] hover:underline"
+                    >
+                      Wall Street Wildlife
+                    </a>
+                    , where he and Luke "Badger" Hallard teach professional-level options trading and stock market investing strategies
+                    designed to help investors beat the indexes and build lasting wealth.
+                  </p>
+                  <p>
+                    His approach integrates insights from Hakomi (somatic psychotherapy), Internal Family Systems (IFS),
+                    Zen meditation, and Nietzschean philosophy to help people break through mental barriers,
+                    cultivate character, and become who they truly are.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </section>
+
           {/* Collaborators */}
-          <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" id="about" aria-labelledby="collaborators-heading">
+          <section className="p-12 md:p-16 bg-[#0a0a0a] text-white/70" aria-labelledby="collaborators-heading">
             <ScrollReveal animation="fade-up">
               <h4 id="collaborators-heading" className="font-mono text-xs tracking-widest opacity-40 mb-8 uppercase">
                 Collaborators & Partners
