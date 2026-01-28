@@ -60,7 +60,7 @@ export default function OracleTerminal({ isOpen, onClose }: OracleTerminalProps)
     let response = '';
     switch (cmd) {
       case 'help':
-        response = 'AVAILABLE COMMANDS: help, clear, fear, money, truth, love, purpose, krzys';
+        response = 'AVAILABLE COMMANDS: help, clear, fear, money, truth, love, purpose, krzys, patience, hope, imagination, doubt, vitality, amor fati, courage, wisdom, gratitude, discipline, humility, resilience, integrity, compassion, presence, equanimity, authenticity, temperance, curiosity, fortitude, serenity';
         break;
       case 'clear':
         setTerminalHistory([]);
@@ -80,6 +80,70 @@ export default function OracleTerminal({ isOpen, onClose }: OracleTerminalProps)
         break;
       case 'purpose':
         response = 'To build. To break. To begin again.';
+        break;
+      case 'patience':
+        response = 'Patience is not passive waiting. It is active stillness while chaos unfolds.';
+        break;
+      case 'hope':
+        response = 'Hope is not optimism. It is the discipline of acting as if the future matters.';
+        break;
+      case 'imagination':
+        response = 'Imagination is the first act of creation. What you cannot picture, you cannot become.';
+        break;
+      case 'doubt':
+        response = 'Doubt is the chisel that shapes conviction. Embrace it, but do not worship it.';
+        break;
+      case 'vitality':
+        response = 'Vitality is not the absence of fatigue. It is the presence of meaning.';
+        break;
+      case 'amor fati':
+      case 'amorfati':
+        response = 'Love your fate. Every wound, every gift, every detour—say yes to all of it.';
+        break;
+      case 'courage':
+        response = 'Courage is not fearlessness. It is fear walking forward anyway.';
+        break;
+      case 'wisdom':
+        response = 'Wisdom is knowing what to ignore. The sage sees less but understands more.';
+        break;
+      case 'gratitude':
+        response = 'Gratitude is not a response to fortune. It is a stance toward existence itself.';
+        break;
+      case 'discipline':
+        response = 'Discipline is remembered enthusiasm. It carries you when motivation abandons you.';
+        break;
+      case 'humility':
+        response = 'Humility is not thinking less of yourself. It is thinking of yourself less.';
+        break;
+      case 'resilience':
+        response = 'Resilience is not bouncing back. It is growing through what would break you.';
+        break;
+      case 'integrity':
+        response = 'Integrity is wholeness. When your actions match your words match your thoughts.';
+        break;
+      case 'compassion':
+        response = 'Compassion begins with seeing yourself in the other. It ends with seeing no other.';
+        break;
+      case 'presence':
+        response = 'Presence is the only place where life happens. The past is memory. The future is imagination.';
+        break;
+      case 'equanimity':
+        response = 'Equanimity is the still point in the turning world. Unmoved, but not indifferent.';
+        break;
+      case 'authenticity':
+        response = 'Authenticity is expensive. It costs you the comfort of other people\'s expectations.';
+        break;
+      case 'temperance':
+        response = 'Temperance is not deprivation. It is the art of enough.';
+        break;
+      case 'curiosity':
+        response = 'Curiosity is the antidote to certainty. Stay curious, stay alive.';
+        break;
+      case 'fortitude':
+        response = 'Fortitude is the long game. Not a single act of bravery, but daily endurance.';
+        break;
+      case 'serenity':
+        response = 'Serenity is not the absence of storms. It is peace amid them.';
         break;
       case 'krzys':
       case 'krzysztof':
