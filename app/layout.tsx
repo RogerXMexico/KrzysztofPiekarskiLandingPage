@@ -72,10 +72,10 @@ export const metadata: Metadata = {
     description: "Founder of Fire Philosophy (Nietzsche, Zen) and co-host of Wall Street Wildlife. PhD on Buddhist Philosophy in David Foster Wallace. Philosophy for the mind, strategy for the markets.",
     images: [
       {
-        url: "/krzysztof.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Krzysztof Piekarski - Philosopher, Analyst & Investor",
+        alt: "Krzysztof Piekarski - Philosophy for the mind, strategy for the markets",
       },
     ],
   },
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Krzysztof Piekarski | Philosopher, Analyst & Investor",
     description: "Founder of Fire Philosophy (Nietzsche, Zen) and co-host of Wall Street Wildlife. PhD on Buddhist Philosophy in David Foster Wallace.",
     creator: "@7FlyingPlatypus",
-    images: ["/krzysztof.jpg"],
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://krzysztofpiekarski.netlify.app",

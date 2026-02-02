@@ -165,6 +165,26 @@ const books: Book[] = [
     quote: "The soul is healed by being with children.",
     summary: "Dostoevsky's final masterpiece exploring faith, doubt, and morality through the turbulent Karamazov family. A profound meditation on free will, the existence of God, and the nature of evil.",
     year: "1880"
+  },
+  {
+    id: 16,
+    title: "Moby-Dick",
+    author: "Herman Melville",
+    color: "#1e3a5f",
+    spineColor: "#1d4ed8",
+    quote: "It is not down on any map; true places never are.",
+    summary: "Melville's epic tale of Captain Ahab's monomaniacal pursuit of the white whale. A vast meditation on obsession, fate, nature, and the limits of human knowledge against an indifferent universe.",
+    year: "1851"
+  },
+  {
+    id: 17,
+    title: "Zen Mind, Beginner's Mind",
+    author: "Shunryu Suzuki",
+    color: "#4a5568",
+    spineColor: "#718096",
+    quote: "In the beginner's mind there are many possibilities, but in the expert's there are few.",
+    summary: "A collection of talks by Zen master Shunryu Suzuki on the practice of zazen. Simple, direct, and profound—an essential guide to maintaining openness, curiosity, and presence in everyday life.",
+    year: "1970"
   }
 ];
 

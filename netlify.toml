@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[redirects]]
+  from = "/api/substack-feed"
+  to = "https://firephilosophy.substack.com/feed"
+  status = 200
+  force = true
+
+# SPA fallback — must come AFTER the API proxy rule
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

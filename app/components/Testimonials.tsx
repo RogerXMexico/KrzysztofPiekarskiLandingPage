@@ -84,7 +84,7 @@ function TestimonialCard({ text, author, title, featured, isTouchDevice }: Testi
           <span className="absolute -top-4 -left-2 text-6xl text-white/10 font-serif" aria-hidden="true">
             "
           </span>
-          <blockquote className="text-white/80 font-serif italic leading-relaxed text-[15px] relative z-10">
+          <blockquote className="text-white/80 font-serif italic leading-relaxed text-[17px] relative z-10">
             {text}
           </blockquote>
           <span className="absolute -bottom-8 right-0 text-6xl text-white/10 font-serif" aria-hidden="true">

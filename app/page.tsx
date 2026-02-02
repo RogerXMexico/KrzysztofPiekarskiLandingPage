@@ -22,6 +22,7 @@ import SectionDivider from './components/SectionDivider';
 import BackToTop from './components/BackToTop';
 import ScrollReveal from './components/ScrollReveal';
 import NewsletterSignup from './components/NewsletterSignup';
+import SubstackPosts from './components/SubstackPosts';
 
 // Hooks
 import { useAudio } from './hooks/useAudio';
@@ -47,6 +48,7 @@ export default function FieldGuide() {
   const [isQuoteRevealed, setIsQuoteRevealed] = useState(false);
   const [isBottom, setIsBottom] = useState(false);
   const [oracleOpen, setOracleOpen] = useState(false);
+  const [philoQuoteOpen, setPhiloQuoteOpen] = useState(false);
 
   // Refs
   const physicsCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -247,6 +249,7 @@ export default function FieldGuide() {
         audioEnabled={audioEnabled}
         toggleAudio={toggleAudio}
         onOpenOracle={() => setOracleOpen(true)}
+        onOpenPhiloQuote={() => setPhiloQuoteOpen(true)}
         playHoverSound={playHoverSound}
         time={time}
         scrollY={scrollY}
@@ -262,7 +265,8 @@ export default function FieldGuide() {
             style={{ transform: prefersReducedMotion ? 'none' : `translateY(${scrollY * 0.05}px)` }}
           >
             <h1 className="text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter mb-6 text-white mix-blend-difference flex flex-col items-start cursor-default">
-              <div className="flex flex-wrap">
+              <span className="sr-only">Krzysztof Piekarski</span>
+              <div className="flex flex-wrap" aria-hidden="true">
                 {'KRZYSZTOF'.split('').map((char, i) => (
                   <span
                     key={`k-${i}`}
@@ -282,7 +286,7 @@ export default function FieldGuide() {
                   </span>
                 ))}
               </div>
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap" aria-hidden="true">
                 {'PIEKARSKI'.split('').map((char, i) => (
                   <span
                     key={`p-${i}`}
@@ -342,6 +346,16 @@ export default function FieldGuide() {
                 }}
               >
                 PHILOSOPHER
+              </span>
+              •{' '}
+              <span
+                className="cursor-pointer hover:bg-[#FF4500] hover:text-white transition-all duration-200 px-1"
+                onMouseEnter={(e) => {
+                  spawnSparks(e);
+                  playHoverSound();
+                }}
+              >
+                PROFESSOR
               </span>
             </div>
 
@@ -532,6 +546,9 @@ export default function FieldGuide() {
           {/* Contact Form */}
           <ContactForm playHoverSound={playHoverSound} />
 
+          {/* Latest Fire Philosophy Posts */}
+          <SubstackPosts playHoverSound={playHoverSound} />
+
           {/* Newsletter Signup */}
           <div className="mt-8">
             <NewsletterSignup playHoverSound={playHoverSound} />
@@ -659,7 +676,7 @@ export default function FieldGuide() {
               >
                 <img
                   src="/BuddhaSocrates.png"
-                  alt=""
+                  alt="Buddha and Socrates in conversation"
                   className="absolute right-0 bottom-0 h-full w-auto opacity-0 scale-[0.8] group-hover/philosophy:opacity-80 group-hover/philosophy:scale-100 transition-all duration-500 object-contain origin-bottom-right"
                   style={{
                     maskImage:
@@ -718,7 +735,7 @@ export default function FieldGuide() {
                 >
                   <img
                     src="/fire.gif"
-                    alt=""
+                    alt="Animated fire symbolizing transformation"
                     className="w-[106px] h-[106px] object-contain"
                     style={{
                       maskImage: 'radial-gradient(circle, black 40%, transparent 70%)',
@@ -1069,7 +1086,7 @@ export default function FieldGuide() {
                     >
                       Dale Wright
                     </a>{' '}
-                    (Professor Emeritus of Religious Studies at Occidental College) and Malek Moazzam-Doulat.
+                    (Professor Emeritus of Religious Studies at Occidental College).
                   </p>
                   <p>
                     In the world of finance, Krzysztof is co-host of{' '}
@@ -1118,7 +1135,7 @@ export default function FieldGuide() {
                 className="flex flex-col items-center gap-3 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#006400]"
                 onMouseEnter={playHoverSound}
               >
-                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#006400] group-hover:shadow-[0_0_45px_5px_#006400] group-active:shadow-[0_0_60px_10px_#006400] duration-300">
+                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 group-hover:scale-[1.3] transition-all border border-white/20 group-hover:border-[#006400] group-hover:shadow-[0_0_45px_5px_#006400] group-active:shadow-[0_0_60px_10px_#006400] duration-300">
                   <img
                     src="/badger.png"
                     alt="Luke Badger Hallard"
@@ -1137,7 +1154,7 @@ export default function FieldGuide() {
                 className="flex flex-col items-center gap-3 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500]"
                 onMouseEnter={playHoverSound}
               >
-                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 group-hover:border-[#FF4500] group-hover:shadow-[0_0_45px_5px_#FF4500] group-active:shadow-[0_0_60px_10px_#FF4500] duration-300">
+                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 group-hover:scale-[1.3] transition-all border border-white/20 group-hover:border-[#FF4500] group-hover:shadow-[0_0_45px_5px_#FF4500] group-active:shadow-[0_0_60px_10px_#FF4500] duration-300">
                   <img
                     src="/Dale Wright.jpg"
                     alt="Dale Wright"
@@ -1149,8 +1166,14 @@ export default function FieldGuide() {
                   <p className="text-xs font-mono opacity-60">Zen Philosopher</p>
                 </div>
               </a>
-              <div className="flex flex-col items-center gap-3 group cursor-pointer" onMouseEnter={playHoverSound}>
-                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-white/20 relative group-hover:border-[#9d00ff] group-hover:shadow-[0_0_30px_#9d00ff] group-active:shadow-[0_0_50px_#9d00ff] duration-300">
+              <a
+                href="https://characterbydesign.substack.com/p/death-of-a-friend"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 group cursor-pointer"
+                onMouseEnter={playHoverSound}
+              >
+                <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden grayscale group-hover:grayscale-0 group-hover:scale-[1.3] transition-all border border-white/20 relative group-hover:border-[#9d00ff] group-hover:shadow-[0_0_30px_#9d00ff] group-active:shadow-[0_0_50px_#9d00ff] duration-300">
                   <img
                     src="/bunk.jpg"
                     alt="Bunk"
@@ -1164,7 +1187,7 @@ export default function FieldGuide() {
                   <p className="font-bold uppercase text-sm text-white">Bunk</p>
                   <p className="text-xs font-mono opacity-60">Chief Morale</p>
                 </div>
-              </div>
+              </a>
             </div>
           </section>
         </div>
@@ -1172,6 +1195,57 @@ export default function FieldGuide() {
         {/* Oracle Terminal */}
         <OracleTerminal isOpen={oracleOpen} onClose={() => setOracleOpen(false)} />
       </main>
+
+      {/* Philosophy Quote Modal */}
+      {philoQuoteOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ cursor: 'auto' }}
+          onClick={() => setPhiloQuoteOpen(false)}
+        >
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
+          <div
+            className="relative max-w-2xl w-full bg-black border-2 border-[#FF4500] p-10 md:p-14 overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              boxShadow: '0 0 40px rgba(255,69,0,0.6), 0 0 80px rgba(255,69,0,0.3), inset 0 0 60px rgba(255,69,0,0.05)',
+              animation: 'philoFadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            }}
+          >
+            <button
+              onClick={() => setPhiloQuoteOpen(false)}
+              className="absolute top-4 right-4 p-2 text-[#FF4500] hover:bg-[#FF4500] hover:text-black transition-colors"
+              aria-label="Close"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div className="text-white/80 font-serif text-base md:text-lg leading-relaxed italic space-y-4">
+              <p>
+                The most dangerous thing a person can do is live on autopilot — and the most radical thing is to pay attention. My work insists that ancient wisdom and modern strategy were never the opposites we pretended they were: Zen Buddhism and options trading, Nietzsche and portfolio management, jiu-jitsu and the Socratic method. The contradiction is the point.
+              </p>
+              <p>
+                Markets teach you that your ego is expensive; meditation teaches you it's also optional; getting choked unconscious three times a week confirms both.
+              </p>
+              <p>
+                I hold a PhD in what David Foster Wallace can teach us about suffering — which, it turns out, is the same thing the Buddha taught, just with more footnotes.
+              </p>
+              <p>
+                Whether I'm helping someone build wealth or build character, the question is always the same: <span className="text-[#FF4500] font-semibold not-italic">what are you not seeing because you've decided not to look?</span>
+              </p>
+            </div>
+            <footer className="mt-8 text-right">
+              <span className="text-[#FF4500] font-bold font-mono text-sm tracking-widest uppercase">— Krzysztof Piekarski</span>
+            </footer>
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes philoFadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
 
       {/* Memento Mori Ticker */}
       <MementoMoriTicker isVisible={isBottom} />

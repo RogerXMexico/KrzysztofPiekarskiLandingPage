@@ -9,6 +9,7 @@ interface NavigationProps {
   audioEnabled: boolean;
   toggleAudio: () => void;
   onOpenOracle: () => void;
+  onOpenPhiloQuote: () => void;
   playHoverSound: () => void;
   time: string;
   scrollY: number;
@@ -20,13 +21,14 @@ export default function Navigation({
   audioEnabled,
   toggleAudio,
   onOpenOracle,
+  onOpenPhiloQuote,
   playHoverSound,
   time,
   scrollY,
 }: NavigationProps) {
   const menuItems = [
-    { label: 'WORK', icon: '◈', href: '#work' },
-    { label: 'PHILOSOPHY', icon: '☯', href: '#philosophy' },
+    { label: 'WORK', icon: '◈', href: 'https://repositories.lib.utexas.edu/server/api/core/bitstreams/1d5fa2a0-5a36-4e43-b22f-3f9e3e930850/content' },
+    { label: 'PHILOSOPHY', icon: '☯', action: onOpenPhiloQuote },
     { label: 'ABOUT', icon: '◉', href: '#about' },
     { label: 'CONTACT', icon: '✉', href: 'https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com' },
   ];
@@ -53,19 +55,32 @@ export default function Navigation({
                 transitionDelay: menuOpen ? `${i * 150}ms` : '0ms',
               }}
             >
-              <a
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                onMouseEnter={playHoverSound}
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 px-4 py-2 border-2 border-white rounded-sm bg-transparent hover:bg-[#FF4500] hover:text-black hover:border-[#FF4500] hover:shadow-[0_0_20px_rgba(255,69,0,0.8),0_0_40px_rgba(255,69,0,0.5)] transition-all duration-100 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                style={{ fontFamily: "'Permanent Marker', cursive" }}
-              >
-                <span className="text-lg" aria-hidden="true">{item.icon}</span>
-                <span className="text-sm tracking-wider">{item.label}</span>
-                <span className="text-white/60 group-hover:text-black/60 transition-colors" aria-hidden="true">›</span>
-              </a>
+              {'action' in item && item.action ? (
+                <button
+                  onMouseEnter={playHoverSound}
+                  onClick={() => { setMenuOpen(false); item.action!(); }}
+                  className="flex items-center gap-2 px-4 py-2 border-2 border-white rounded-sm bg-transparent hover:bg-[#FF4500] hover:text-black hover:border-[#FF4500] hover:shadow-[0_0_20px_rgba(255,69,0,0.8),0_0_40px_rgba(255,69,0,0.5)] transition-all duration-100 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  style={{ fontFamily: "'Permanent Marker', cursive" }}
+                >
+                  <span className="text-lg" aria-hidden="true">{item.icon}</span>
+                  <span className="text-sm tracking-wider">{item.label}</span>
+                  <span className="text-white/60 group-hover:text-black/60 transition-colors" aria-hidden="true">›</span>
+                </button>
+              ) : (
+                <a
+                  href={'href' in item ? item.href : undefined}
+                  target={'href' in item && item.href?.startsWith('http') ? '_blank' : undefined}
+                  rel={'href' in item && item.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  onMouseEnter={playHoverSound}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 px-4 py-2 border-2 border-white rounded-sm bg-transparent hover:bg-[#FF4500] hover:text-black hover:border-[#FF4500] hover:shadow-[0_0_20px_rgba(255,69,0,0.8),0_0_40px_rgba(255,69,0,0.5)] transition-all duration-100 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  style={{ fontFamily: "'Permanent Marker', cursive" }}
+                >
+                  <span className="text-lg" aria-hidden="true">{item.icon}</span>
+                  <span className="text-sm tracking-wider">{item.label}</span>
+                  <span className="text-white/60 group-hover:text-black/60 transition-colors" aria-hidden="true">›</span>
+                </a>
+              )}
             </div>
           ))}
 

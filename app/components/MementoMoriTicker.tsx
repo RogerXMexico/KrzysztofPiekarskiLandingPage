@@ -65,6 +65,38 @@ export default function MementoMoriTicker({ isVisible }: MementoMoriTickerProps)
           PATIENCE: <span className="text-green-500">▲ CULTIVATING</span>
         </span>
         <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          AMOR_FATI: <span className="text-[#FF4500]">▲ EMBRACED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          INTEGRITY: <span className="text-green-500">▲ NON-NEGOTIABLE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          CURIOSITY: <span className="text-green-500">▲ INFINITE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          DISCIPLINE: <span className="text-green-500">▲ FORGED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          PRESENCE: <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">NOW</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          HUMILITY: <span className="text-green-500">▲ DEEPENING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          SUFFERING: <span className="text-[#FF4500]">▲ TRANSMUTED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70">
+          ATTENTION: <span className="text-green-500">▲ SHARPENING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
         {/* Duplicate for seamless loop */}
         <span className="opacity-70" aria-hidden="true">
           ENTROPY: <span className="text-red-500">▲ RISING</span>
@@ -105,6 +137,38 @@ export default function MementoMoriTicker({ isVisible }: MementoMoriTickerProps)
         <span className="opacity-40" aria-hidden="true">|</span>
         <span className="opacity-70" aria-hidden="true">
           PATIENCE: <span className="text-green-500">▲ CULTIVATING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          AMOR_FATI: <span className="text-[#FF4500]">▲ EMBRACED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          INTEGRITY: <span className="text-green-500">▲ NON-NEGOTIABLE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          CURIOSITY: <span className="text-green-500">▲ INFINITE</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          DISCIPLINE: <span className="text-green-500">▲ FORGED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          PRESENCE: <span className="text-white motion-safe:animate-pulse motion-reduce:animate-none">NOW</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          HUMILITY: <span className="text-green-500">▲ DEEPENING</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          SUFFERING: <span className="text-[#FF4500]">▲ TRANSMUTED</span>
+        </span>
+        <span className="opacity-40" aria-hidden="true">|</span>
+        <span className="opacity-70" aria-hidden="true">
+          ATTENTION: <span className="text-green-500">▲ SHARPENING</span>
         </span>
       </div>
     </div>
