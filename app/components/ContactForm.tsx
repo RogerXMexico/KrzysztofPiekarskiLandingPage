@@ -39,27 +39,41 @@ export default function ContactForm({ playHoverSound }: ContactFormProps) {
 
   return (
     <>
-      {/* HIRE ME Link */}
-      <a
+      {/* Booking Calendar Placeholder */}
+      <div
         id="contact"
-        href="https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        onMouseEnter={playHoverSound}
-        className="mt-8 inline-flex items-center gap-3 border-b-4 border-white/60 pb-2 hover:border-[#FF4500] hover:pb-4 transition-all font-black text-xl tracking-widest text-white hover:text-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-        style={{ fontFamily: "'Permanent Marker', cursive" }}
+        className="mt-8 w-full max-w-md border-2 border-[#FF4500]/40 bg-[#FF4500]/5 p-6 md:p-8"
       >
-        HIRE ME AS YOUR CONSULTANT{' '}
-        <span
-          className="motion-safe:animate-pulse motion-reduce:animate-none text-2xl scale-105 text-[#FF4500] drop-shadow-[0_0_15px_rgba(255,100,0,1),0_0_30px_rgba(255,69,0,0.6)]"
-          aria-hidden="true"
+        <h3
+          className="text-2xl text-white mb-2"
+          style={{ fontFamily: "'Permanent Marker', cursive" }}
         >
-          ↓
-        </span>
-      </a>
+          BOOK A DISCOVERY CALL
+        </h3>
+        <p className="text-white/50 font-mono text-sm mb-4">
+          Free 15-minute call. No obligations. Let's see if we're a fit.
+        </p>
+
+        {/* Calendly Embed */}
+        <iframe
+          src="https://calendly.com/krzyspiekarski/15min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=e0e0e0&primary_color=FF4500"
+          width="100%"
+          height="700"
+          frameBorder="0"
+          title="Schedule a 15-minute discovery call with Krzysztof Piekarski"
+          className="border border-white/10"
+          style={{ minHeight: '700px' }}
+        />
+      </div>
+
+      <p
+        className="mt-6 text-white/40 font-mono text-xs uppercase tracking-widest text-center w-full max-w-md"
+      >
+        — or send a message —
+      </p>
 
       {/* Contact Form */}
-      <form className="mt-8 w-full max-w-md space-y-4" onSubmit={handleSubmit} aria-label="Contact form">
+      <form className="mt-4 w-full max-w-md space-y-4" onSubmit={handleSubmit} aria-label="Contact form">
         <div>
           <label htmlFor="name" className="sr-only">
             Your Name

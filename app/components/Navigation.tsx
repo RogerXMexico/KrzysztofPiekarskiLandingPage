@@ -30,7 +30,7 @@ export default function Navigation({
     { label: 'WORK', icon: '◈', href: 'https://repositories.lib.utexas.edu/server/api/core/bitstreams/1d5fa2a0-5a36-4e43-b22f-3f9e3e930850/content' },
     { label: 'PHILOSOPHY', icon: '☯', action: onOpenPhiloQuote },
     { label: 'ABOUT', icon: '◉', href: '#about' },
-    { label: 'CONTACT', icon: '✉', href: 'https://mail.google.com/mail/?view=cm&to=krzyspiekarski@gmail.com' },
+    { label: 'CONTACT', icon: '✉', href: '#contact' },
   ];
 
   return (

@@ -543,6 +543,93 @@ export default function FieldGuide() {
           {/* Testimonials */}
           <Testimonials />
 
+          {/* Services */}
+          <section className="mt-12 space-y-6" id="services" aria-labelledby="services-heading">
+            <h3
+              id="services-heading"
+              className="text-3xl md:text-4xl text-white"
+              style={{ fontFamily: "'Permanent Marker', cursive" }}
+            >
+              HOW WE WORK
+              <br />
+              TOGETHER
+            </h3>
+            <p className="text-white/50 font-mono text-sm">
+              Three ways to engage. Each one starts with a conversation.
+            </p>
+
+            <div className="space-y-4">
+              {/* 1:1 Coaching */}
+              <div className="group border border-white/20 bg-white/5 p-6 hover:border-[#FF4500] hover:bg-[#FF4500]/5 transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-mono text-[#FF4500] tracking-widest uppercase">01</span>
+                    <h4
+                      className="text-xl text-white mt-1 group-hover:text-[#FF4500] transition-colors"
+                      style={{ fontFamily: "'Permanent Marker', cursive" }}
+                    >
+                      1:1 PHILOSOPHICAL COACHING
+                    </h4>
+                    <p className="text-white/60 font-serif text-sm mt-2 leading-relaxed">
+                      Break through mental barriers using Hakomi, IFS, Zen, and Nietzschean philosophy.
+                      Not therapy — a rigorous partnership in becoming who you are.
+                    </p>
+                  </div>
+                  <span className="text-white/20 group-hover:text-[#FF4500] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
+                </div>
+              </div>
+
+              {/* Portfolio & Trading */}
+              <div className="group border border-white/20 bg-white/5 p-6 hover:border-[#39FF14] hover:bg-[#39FF14]/5 transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-mono text-[#39FF14] tracking-widest uppercase">02</span>
+                    <h4
+                      className="text-xl text-white mt-1 group-hover:text-[#39FF14] transition-colors"
+                      style={{ fontFamily: "'Permanent Marker', cursive" }}
+                    >
+                      PORTFOLIO & OPTIONS CONSULTING
+                    </h4>
+                    <p className="text-white/60 font-serif text-sm mt-2 leading-relaxed">
+                      Equity analysis, options strategy, and risk management.
+                      Beat the indexes with discipline, not luck.
+                    </p>
+                  </div>
+                  <span className="text-white/20 group-hover:text-[#39FF14] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
+                </div>
+              </div>
+
+              {/* Speaking & Workshops */}
+              <div className="group border border-white/20 bg-white/5 p-6 hover:border-[#8B5CF6] hover:bg-[#8B5CF6]/5 transition-all duration-300">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-mono text-[#8B5CF6] tracking-widest uppercase">03</span>
+                    <h4
+                      className="text-xl text-white mt-1 group-hover:text-[#8B5CF6] transition-colors"
+                      style={{ fontFamily: "'Permanent Marker', cursive" }}
+                    >
+                      SPEAKING & WORKSHOPS
+                    </h4>
+                    <p className="text-white/60 font-serif text-sm mt-2 leading-relaxed">
+                      Keynotes, corporate workshops, and group sessions on philosophy,
+                      character development, and the psychology of investing.
+                    </p>
+                  </div>
+                  <span className="text-white/20 group-hover:text-[#8B5CF6] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              onMouseEnter={playHoverSound}
+              className="inline-block mt-4 px-6 py-3 bg-white text-black font-black tracking-wider hover:bg-[#FF4500] hover:text-white hover:scale-105 transition-all duration-200 border-2 border-black hover:border-[#FF4500] hover:shadow-[0_0_30px_rgba(255,69,0,0.8)]"
+              style={{ fontFamily: "'Permanent Marker', cursive" }}
+            >
+              BOOK A DISCOVERY CALL
+            </a>
+          </section>
+
           {/* Contact Form */}
           <ContactForm playHoverSound={playHoverSound} />
 
