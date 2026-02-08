@@ -188,6 +188,11 @@ body {
   animation: banana-fall 1.5s ease-in forwards;
 }
 
+@keyframes philoFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* Image loading shimmer effect */
 @keyframes shimmer {
   0% {
