@@ -26,6 +26,17 @@ export default function NewsletterSignup({ playHoverSound }: NewsletterSignupPro
 
     setStatus('loading');
 
+    // Save email to Netlify Forms
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'newsletter', email }).toString(),
+      });
+    } catch {
+      // Still deliver the PDF even if form submission fails
+    }
+
     // Open Substack subscription in background tab
     window.open(`https://firephilosophy.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
 

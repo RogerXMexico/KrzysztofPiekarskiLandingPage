@@ -176,6 +176,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}
       >
+        {/* Hidden form for Netlify to detect at build time */}
+        <form name="newsletter" data-netlify="true" hidden>
+          <input type="email" name="email" />
+        </form>
         {children}
       </body>
     </html>
