@@ -575,7 +575,6 @@ export default function FieldGuide() {
                       Not therapy — a rigorous partnership in becoming who you are.
                     </p>
                   </div>
-                  <span className="text-white/20 group-hover:text-[#FF4500] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
                 </div>
               </div>
 
@@ -595,7 +594,6 @@ export default function FieldGuide() {
                       Beat the indexes with discipline, not luck.
                     </p>
                   </div>
-                  <span className="text-white/20 group-hover:text-[#39FF14] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
                 </div>
               </div>
 
@@ -615,7 +613,6 @@ export default function FieldGuide() {
                       character development, and the psychology of investing.
                     </p>
                   </div>
-                  <span className="text-white/20 group-hover:text-[#8B5CF6] text-2xl transition-colors flex-shrink-0" aria-hidden="true">→</span>
                 </div>
               </div>
             </div>
