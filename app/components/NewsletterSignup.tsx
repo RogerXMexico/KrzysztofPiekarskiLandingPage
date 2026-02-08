@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, Check, BookOpen } from 'lucide-react';
+import { ArrowRight, Check, BookOpen, Download } from 'lucide-react';
 
 interface NewsletterSignupProps {
   playHoverSound?: () => void;
@@ -11,19 +11,29 @@ export default function NewsletterSignup({ playHoverSound }: NewsletterSignupPro
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
+  const triggerPdfDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/five-principles-guide.pdf';
+    link.download = '5-Philosophical-Principles-That-Changed-My-Trading.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setStatus('loading');
 
-    // Redirect to Substack with pre-filled email
+    // Open Substack subscription in background tab
     window.open(`https://firephilosophy.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+
+    // Trigger PDF download
+    triggerPdfDownload();
+
     setStatus('success');
     setEmail('');
-
-    // Reset after 3 seconds
-    setTimeout(() => setStatus('idle'), 3000);
   };
 
   return (
@@ -62,53 +72,74 @@ export default function NewsletterSignup({ playHoverSound }: NewsletterSignupPro
           <span className="text-[#39FF14] font-mono text-xs w-5 flex-shrink-0">02</span>
           The Zen principle that eliminates revenge trading
         </div>
-        <div className="flex items-center gap-2 text-white/40 text-sm font-serif italic">
-          <span className="text-white/20 font-mono text-xs w-5 flex-shrink-0">...</span>
-          + 3 more principles inside
+        <div className="flex items-center gap-2 text-white/60 text-sm font-serif">
+          <span className="text-[#FF4500] font-mono text-xs w-5 flex-shrink-0">03</span>
+          Nietzsche's thought experiment for trade selection
+        </div>
+        <div className="flex items-center gap-2 text-white/60 text-sm font-serif">
+          <span className="text-[#8B5CF6] font-mono text-xs w-5 flex-shrink-0">04</span>
+          The paradox of making more by caring less
+        </div>
+        <div className="flex items-center gap-2 text-white/60 text-sm font-serif">
+          <span className="text-[#39FF14] font-mono text-xs w-5 flex-shrink-0">05</span>
+          How to hold both sides of every trade
         </div>
       </div>
 
-      {/* Signup Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 ml-0 sm:ml-[72px]">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          disabled={status === 'loading' || status === 'success'}
-          className="flex-1 px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#FF4500] focus:outline-none transition-colors font-mono text-sm disabled:opacity-50"
-          required
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading' || status === 'success'}
-          onMouseEnter={playHoverSound}
-          className={`px-6 py-3 font-bold text-sm tracking-wider transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed whitespace-nowrap ${
-            status === 'success'
-              ? 'bg-green-500 text-white'
-              : 'bg-[#FF4500] text-white hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,69,0,0.6)]'
-          }`}
-          style={{ fontFamily: "'Permanent Marker', cursive" }}
-        >
-          {status === 'loading' ? (
-            'Sending...'
-          ) : status === 'success' ? (
-            <>
-              <Check size={18} />
-              Check your inbox!
-            </>
-          ) : (
-            <>
-              GET THE FREE GUIDE
-              <ArrowRight size={18} />
-            </>
-          )}
-        </button>
-      </form>
+      {/* Signup Form or Success State */}
+      {status === 'success' ? (
+        <div className="ml-0 sm:ml-[72px] space-y-4">
+          <div className="flex items-center gap-3 text-green-400">
+            <Check size={20} />
+            <span className="font-bold text-sm">Your guide is downloading!</span>
+          </div>
+          <p className="text-white/50 text-xs font-mono">
+            Check your downloads folder. We also opened Substack so you can subscribe for weekly philosophy & trading insights.
+          </p>
+          <button
+            onClick={triggerPdfDownload}
+            onMouseEnter={playHoverSound}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 text-white text-sm font-mono hover:bg-[#FF4500]/20 hover:border-[#FF4500] transition-all duration-200"
+          >
+            <Download size={16} />
+            Download Again
+          </button>
+        </div>
+      ) : (
+        <>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 ml-0 sm:ml-[72px]">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              disabled={status === 'loading'}
+              className="flex-1 px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/40 focus:border-[#FF4500] focus:outline-none transition-colors font-mono text-sm disabled:opacity-50"
+              required
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              onMouseEnter={playHoverSound}
+              className="px-6 py-3 font-bold text-sm tracking-wider transition-all duration-200 flex items-center justify-center gap-2 disabled:cursor-not-allowed whitespace-nowrap bg-[#FF4500] text-white hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,69,0,0.6)]"
+              style={{ fontFamily: "'Permanent Marker', cursive" }}
+            >
+              {status === 'loading' ? (
+                'Sending...'
+              ) : (
+                <>
+                  GET THE FREE GUIDE
+                  <ArrowRight size={18} />
+                </>
+              )}
+            </button>
+          </form>
 
-      <p className="text-white/30 text-xs font-mono mt-3 ml-0 sm:ml-[72px]">
-        Join Fire Philosophy. No spam, unsubscribe anytime.
-      </p>
+          <p className="text-white/30 text-xs font-mono mt-3 ml-0 sm:ml-[72px]">
+            Join Fire Philosophy. No spam, unsubscribe anytime.
+          </p>
+        </>
+      )}
     </div>
   );
 }
