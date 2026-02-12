@@ -1001,7 +1001,7 @@ export default function FieldGuide() {
 
             {/* Options Mastery */}
             <a
-              href="https://wswoptionsuniversity.netlify.app/"
+              href="https://wallstreetwildlifeoptions.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="block relative group/options overflow-hidden transition-transform duration-300 hover:rotate-[0.45deg] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#39FF14]"
