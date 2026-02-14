@@ -16,14 +16,14 @@ export default function StickyCTA({ show, playHoverSound }: StickyCTAProps) {
           : 'translate-y-20 opacity-0 pointer-events-none'
       }`}
     >
-      <a
-        href="#contact"
+      <button
+        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         onMouseEnter={playHoverSound}
-        className="px-5 py-3 bg-[#FF4500] text-white font-black tracking-wider hover:bg-white hover:text-black transition-all duration-200 shadow-[0_0_30px_rgba(255,69,0,0.6)] hover:shadow-[0_0_50px_rgba(255,69,0,0.9)] border-2 border-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="px-5 py-3 bg-[#FF4500] text-white font-black tracking-wider hover:bg-white hover:text-black transition-all duration-200 shadow-[0_0_30px_rgba(255,69,0,0.6)] hover:shadow-[0_0_50px_rgba(255,69,0,0.9)] border-2 border-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
         style={{ fontFamily: "var(--font-permanent-marker), 'Permanent Marker', cursive" }}
       >
         WORK WITH ME
-      </a>
+      </button>
     </div>
   );
 }

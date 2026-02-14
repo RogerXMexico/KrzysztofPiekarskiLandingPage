@@ -29,8 +29,8 @@ export default function Navigation({
   const menuItems = [
     { label: 'WORK', icon: '◈', href: 'https://repositories.lib.utexas.edu/server/api/core/bitstreams/1d5fa2a0-5a36-4e43-b22f-3f9e3e930850/content' },
     { label: 'PHILOSOPHY', icon: '☯', action: onOpenPhiloQuote },
-    { label: 'ABOUT', icon: '◉', href: '#about' },
-    { label: 'CONTACT', icon: '✉', href: '#contact' },
+    { label: 'ABOUT', icon: '◉', action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: 'CONTACT', icon: '✉', action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) },
   ];
 
   return (

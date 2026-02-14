@@ -392,14 +392,14 @@ export default function FieldGuide() {
             </div>
 
             {/* CTA Button */}
-            <a
-              href="#contact"
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               onMouseEnter={playHoverSound}
-              className="mt-8 inline-block px-8 py-4 bg-[#FF4500] text-white text-xl font-black tracking-wider hover:bg-white hover:text-black hover:scale-105 transition-all duration-200 shadow-[0_0_30px_rgba(255,69,0,0.6)] hover:shadow-[0_0_50px_rgba(255,69,0,0.9),0_0_80px_rgba(255,69,0,0.6)] border-2 border-[#FF4500] hover:border-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#FF4500]"
+              className="mt-8 inline-block px-8 py-4 bg-[#FF4500] text-white text-xl font-black tracking-wider hover:bg-white hover:text-black hover:scale-105 transition-all duration-200 shadow-[0_0_30px_rgba(255,69,0,0.6)] hover:shadow-[0_0_50px_rgba(255,69,0,0.9),0_0_80px_rgba(255,69,0,0.6)] border-2 border-[#FF4500] hover:border-[#FF4500] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#FF4500] cursor-pointer"
               style={{ fontFamily: "'Permanent Marker', cursive" }}
             >
               WORK WITH ME
-            </a>
+            </button>
           </header>
 
           {/* Photo with 3D tilt effect */}
@@ -617,14 +617,14 @@ export default function FieldGuide() {
               </div>
             </div>
 
-            <a
-              href="#contact"
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               onMouseEnter={playHoverSound}
-              className="inline-block mt-4 px-6 py-3 bg-white text-black font-black tracking-wider hover:bg-[#FF4500] hover:text-white hover:scale-105 transition-all duration-200 border-2 border-black hover:border-[#FF4500] hover:shadow-[0_0_30px_rgba(255,69,0,0.8)]"
+              className="inline-block mt-4 px-6 py-3 bg-white text-black font-black tracking-wider hover:bg-[#FF4500] hover:text-white hover:scale-105 transition-all duration-200 border-2 border-black hover:border-[#FF4500] hover:shadow-[0_0_30px_rgba(255,69,0,0.8)] cursor-pointer"
               style={{ fontFamily: "'Permanent Marker', cursive" }}
             >
               BOOK A DISCOVERY CALL
-            </a>
+            </button>
           </section>
 
           {/* Contact Form */}
