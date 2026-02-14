@@ -404,9 +404,8 @@ export default function FieldGuide() {
 
           {/* Photo with 3D tilt effect */}
           <div
-            className={`relative w-full aspect-[4/5] mt-10 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 ${
-              prefersReducedMotion || isTouchDevice ? '' : 'animate-float-jitter hover:animate-none'
-            }`}
+            className={`relative w-full aspect-[4/5] mt-10 mb-2 group grayscale hover:grayscale-0 transition-all duration-100 ${prefersReducedMotion || isTouchDevice ? '' : 'animate-float-jitter hover:animate-none'
+              }`}
             style={{
               perspective: isTouchDevice ? undefined : '1000px',
               transform: prefersReducedMotion || isTouchDevice ? 'none' : `rotate(${scrollY * 0.002}deg)`,
@@ -699,9 +698,8 @@ export default function FieldGuide() {
 
             {/* Quote Reveal */}
             <div
-              className={`absolute top-0 left-0 w-full h-full flex items-center justify-center p-12 transition-all duration-1000 ${
-                isQuoteRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'
-              }`}
+              className={`absolute top-0 left-0 w-full h-full flex items-center justify-center p-12 transition-all duration-1000 ${isQuoteRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'
+                }`}
               role="region"
               aria-label="Revealed quote"
               aria-hidden={!isQuoteRevealed}
@@ -1071,6 +1069,36 @@ export default function FieldGuide() {
             </a>
           </div>
 
+          {/* Currently Section */}
+          <section className="currently-section" aria-label="Currently Section">
+            <div className="currently-container">
+              <h2 className="currently-header" style={{ fontFamily: "'Permanent Marker', cursive" }}>Currently</h2>
+
+
+              <div className="currently-grid">
+                {[
+                  { icon: "📖", label: "Reading", value: "The Last Samurai", note: "Helen DeWitt's masterpiece on genius, fatherhood, and Kurosawa" },
+                  { icon: "🎧", label: "Listening", value: "Acquired Podcast", note: "The Google AI episode — how they're playing the long game" },
+                  { icon: "🧘", label: "Practicing", value: "Morning zazen + brutally honest journaling", note: "The mirror doesn't lie" },
+                  { icon: "📈", label: "Watching", value: "EOS earnings, ASTS updates", note: "Small caps with asymmetric upside" },
+                  { icon: "🔥", label: "Thinking about", value: "Why amor fati is harder than it sounds", note: "Nietzsche's highest formula of affirmation" },
+                  { icon: "🎬", label: "Watching", value: "Films of Robert Bresson", note: "Next up: A Man Escaped" }
+                ].map((item, i) => (
+                  <div key={i} className="currently-item" onMouseEnter={playHoverSound}>
+                    <span className="currently-icon">{item.icon}</span>
+                    <div className="currently-content">
+                      <span className="currently-label">{item.label}</span>
+                      <span className="currently-value">{item.value}</span>
+                      <span className="currently-note">{item.note}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="currently-updated">Last updated: February 2026</p>
+            </div>
+          </section>
+
           {/* Bookshelf */}
           <Bookshelf onBookHover={playHoverSound} />
 
@@ -1301,7 +1329,7 @@ export default function FieldGuide() {
               className="absolute top-4 right-4 p-2 text-[#FF4500] hover:bg-[#FF4500] hover:text-black transition-colors"
               aria-label="Close"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
             <div className="text-white/80 font-serif text-base md:text-lg leading-relaxed italic space-y-4">
               <p>
