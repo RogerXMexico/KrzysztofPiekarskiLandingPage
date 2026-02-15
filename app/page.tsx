@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, BookOpen } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Headphones, PenTool, TrendingUp, Flame, Film } from 'lucide-react';
+
 import Matter from 'matter-js';
 
 // Components
