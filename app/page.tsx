@@ -1079,7 +1079,7 @@ export default function FieldGuide() {
               <div className="currently-grid">
                 {[
                   { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Reading", value: "The Last Samurai", note: "Helen DeWitt's masterpiece on genius, fatherhood, and Kurosawa" },
-                  { icon: <Headphones className="w-8 h-8 text-[#FF4500]" />, label: "Listening", value: "Acquired Podcast", note: "The Google AI episode — how they're playing the long game" },
+                  { icon: <Headphones className="w-8 h-8 text-[#FF4500]" />, label: "Listening", value: "Philosophize This!", note: "Episode on After Virtue by Alasdair MacIntyre" },
                   { icon: <PenTool className="w-8 h-8 text-[#FF4500]" />, label: "Practicing", value: "Morning zazen + brutally honest journaling", note: "The mirror doesn't lie" },
                   { icon: <TrendingUp className="w-8 h-8 text-[#FF4500]" />, label: "Monitoring", value: "EOS earnings, ASTS updates", note: "Small caps with asymmetric upside" },
                   { icon: <Flame className="w-8 h-8 text-[#FF4500]" />, label: "Thinking about", value: "Why amor fati is harder than it sounds", note: "Nietzsche's highest formula of affirmation" },
