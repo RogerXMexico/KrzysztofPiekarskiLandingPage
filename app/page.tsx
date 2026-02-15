@@ -1083,9 +1083,9 @@ export default function FieldGuide() {
                   { icon: <PenTool className="w-8 h-8 text-[#FF4500]" />, label: "Practicing", value: "Morning zazen + brutally honest journaling", note: "The mirror doesn't lie" },
                   { icon: <TrendingUp className="w-8 h-8 text-[#FF4500]" />, label: "Monitoring", value: "EOS earnings, ASTS updates", note: "Small caps with asymmetric upside" },
                   { icon: <Flame className="w-8 h-8 text-[#FF4500]" />, label: "Thinking about", value: "Why amor fati is harder than it sounds", note: "Nietzsche's highest formula of affirmation" },
-                  { icon: <Film className="w-8 h-8 text-[#FF4500]" />, label: "Watching", value: "Search Party", note: "Dark comedy about millennials and consequences" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Building", value: "Coming soon", note: "Placeholder" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Learning", value: "Coming soon", note: "Placeholder" },
+                  { icon: <Film className="w-8 h-8 text-[#FF4500]" />, label: "Watching", value: "Films of Robert Bresson", note: "Dark comedy about millennials and consequences" },
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Building", value: "Wall Street Wildlife Options University course", note: "Placeholder" },
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Learning", value: "Italian", note: "Placeholder" },
                   { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "?", value: "Coming soon", note: "Placeholder" }
                 ].map((item, i) => (
                   <div key={i} className="currently-item" onMouseEnter={playHoverSound}>
