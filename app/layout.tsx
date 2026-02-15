@@ -208,6 +208,43 @@ export default function RootLayout({
           `}
         </Script>
         
+        {/* Event Tracking for Key CTAs */}
+        <Script id="event-tracking" strategy="afterInteractive">
+          {`
+            document.addEventListener('click', function(e) {
+              var target = e.target;
+              var text = target.innerText || target.textContent || '';
+              text = text.trim().toUpperCase();
+              
+              // Track CTA button clicks
+              if (text === 'WORK WITH ME') {
+                gtag('event', 'cta_click', {
+                  'event_category': 'engagement',
+                  'event_label': 'work_with_me_button'
+                });
+              }
+              if (text === 'BOOK A DISCOVERY CALL') {
+                gtag('event', 'cta_click', {
+                  'event_category': 'engagement',
+                  'event_label': 'book_discovery_call'
+                });
+              }
+              if (text === 'SEND MESSAGE') {
+                gtag('event', 'form_submit_click', {
+                  'event_category': 'engagement',
+                  'event_label': 'contact_form_submit'
+                });
+              }
+              if (text === 'GET THE FREE GUIDE') {
+                gtag('event', 'lead_magnet_click', {
+                  'event_category': 'engagement',
+                  'event_label': 'free_guide_signup'
+                });
+              }
+            });
+          `}
+        </Script>
+        
         {/* Hidden form for Netlify to detect at build time */}
         <form name="newsletter" data-netlify="true" hidden>
           <input type="email" name="email" />
