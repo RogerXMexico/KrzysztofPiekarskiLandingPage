@@ -1084,9 +1084,9 @@ export default function FieldGuide() {
                   { icon: <TrendingUp className="w-8 h-8 text-[#FF4500]" />, label: "Watching", value: "EOS earnings, ASTS updates", note: "Small caps with asymmetric upside" },
                   { icon: <Flame className="w-8 h-8 text-[#FF4500]" />, label: "Thinking about", value: "Why amor fati is harder than it sounds", note: "Nietzsche's highest formula of affirmation" },
                   { icon: <Film className="w-8 h-8 text-[#FF4500]" />, label: "Watching", value: "Search Party", note: "Dark comedy about millennials and consequences" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "TBD", value: "Coming soon", note: "Placeholder" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "TBD", value: "Coming soon", note: "Placeholder" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "TBD", value: "Coming soon", note: "Placeholder" }
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Building", value: "Coming soon", note: "Placeholder" },
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Learning", value: "Coming soon", note: "Placeholder" },
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "?", value: "Coming soon", note: "Placeholder" }
                 ].map((item, i) => (
                   <div key={i} className="currently-item" onMouseEnter={playHoverSound}>
                     <span className="currently-icon">{item.icon}</span>
