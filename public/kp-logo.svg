@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <!-- Enso circle - Zen brushstroke style -->
+  <circle cx="30" cy="30" r="26" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-dasharray="155 10" stroke-linecap="round"/>
+  <!-- KP Monogram -->
+  <text x="30" y="37" font-family="Georgia, Times, serif" font-size="20" fill="#1a1a1a" text-anchor="middle" font-style="italic">KP</text>
+</svg>
