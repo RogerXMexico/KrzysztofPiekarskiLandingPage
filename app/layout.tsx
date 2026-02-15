@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Permanent_Marker } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -193,6 +194,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-EHXR32SQQ5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EHXR32SQQ5');
+          `}
+        </Script>
+        
         {/* Hidden form for Netlify to detect at build time */}
         <form name="newsletter" data-netlify="true" hidden>
           <input type="email" name="email" />
