@@ -1086,7 +1086,7 @@ export default function FieldGuide() {
                   { icon: <Film className="w-8 h-8 text-[#FF4500]" />, label: "Watching", value: "Films of Robert Bresson", note: "Transcendental cinema — next up: A Man Escaped" },
                   { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Building", value: "Wall Street Wildlife Options University course", note: "Comprehensive options education for retail investors" },
                   { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "Learning", value: "Italian", note: "Ogni giorno — A2 to B2, preparing for Sicily" },
-                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "?", value: "Coming soon", note: "Placeholder" }
+                  { icon: <BookOpen className="w-8 h-8 text-[#FF4500]" />, label: "?", value: "Coming soon", note: "❓" }
                 ].map((item, i) => (
                   <div key={i} className="currently-item" onMouseEnter={playHoverSound}>
                     <span className="currently-icon">{item.icon}</span>
